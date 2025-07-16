@@ -1,0 +1,571 @@
+{
+  "rust_to_deps_calls": {
+    "util/system_time_to_asn1_time": [
+      "asn1/impl/Asn1Time/from_unix"
+    ],
+    "vrf/impl/PublicKey/proof_to_hash": [
+      "impl/CtOption/into_option"
+    ],
+    "crypto/profile_key_encryption/impl/ProfileKeyEncryptionDomain/decrypt": [
+      "impl/Choice/unwrap_u8",
+      "impl/Choice/From/from",
+      "ConditionallySelectable/conditional_assign"
+    ],
+    "dcap/fakes/impl/SigningInfo/serialize_attest_public_key": [
+      "ec/impl/EcGroup/from_curve_name",
+      "bn/impl/BigNumContext/new",
+      "ec/impl/EcKeyRef/public_key",
+      "ec/impl/EcPointRef/affine_coordinates_gfp",
+      "bn/impl/BigNum/new",
+      "bn/impl/BigNumRef/to_vec_padded"
+    ],
+    "cert_chain/testutil/impl/TestCert/new": [
+      "x509/impl/X509Builder/set_not_before",
+      "x509/impl/X509Builder/set_serial_number",
+      "x509/extension/impl/BasicConstraints/ca",
+      "x509/impl/X509Builder/set_not_after",
+      "x509/impl/X509Ref/subject_name",
+      "asn1/impl/Asn1Time/days_from_now",
+      "x509/impl/X509Builder/sign",
+      "hash/impl/MessageDigest/sha256",
+      "x509/impl/X509Builder/build",
+      "x509/impl/X509Builder/append_extension",
+      "x509/impl/X509Builder/set_issuer_name",
+      "x509/impl/X509/builder",
+      "x509/extension/impl/BasicConstraints/new",
+      "x509/impl/X509Builder/set_pubkey",
+      "x509/impl/X509Name/builder",
+      "x509/extension/impl/BasicConstraints/build",
+      "x509/impl/X509Builder/set_version",
+      "x509/impl/X509NameBuilder/build",
+      "x509/impl/X509Builder/set_subject_name",
+      "x509/impl/X509NameBuilder/append_entry_by_nid",
+      "x509/extension/impl/BasicConstraints/critical"
+    ],
+    "dcap/test/revoked_other_pck": [
+      "bn/impl/BigNum/from_u32"
+    ],
+    "dcap/sgx_quote/tests/qe_sig_bad_sig": [
+      "ecdsa/impl/EcdsaSig/sign"
+    ],
+    "aes_gcm/impl/Aes256GcmDecryption/verify_tag": [
+      "impl//T//ConstantTimeEq/ct_eq",
+      "impl/bool/From/from"
+    ],
+    "curve/curve25519/impl/PrivateKey/verify_signature": [
+      "impl//T//ConstantTimeEq/ct_eq",
+      "impl/bool/From/from"
+    ],
+    "dcap/sgx_quote/key": [
+      "ec/impl/EcKey/from_public_key_affine_coordinates",
+      "bn/impl/BigNum/from_slice",
+      "ec/impl/EcGroup/from_curve_name"
+    ],
+    "cert_chain/test/trust_store": [
+      "x509/store/impl/X509StoreBuilderRef/param_mut",
+      "x509/crl/impl/X509CRLRef/ToOwned/to_owned",
+      "x509/verify/impl/X509VerifyParamRef/set_flags",
+      "x509/store/impl/X509StoreBuilderRef/add_cert",
+      "x509/impl/X509Ref/ToOwned/to_owned",
+      "x509/store/impl/X509StoreBuilder/build",
+      "x509/store/impl/X509StoreBuilder/new",
+      "x509/store/impl/X509StoreBuilderRef/add_crl"
+    ],
+    "dcap/revocation_list/impl/RevocationList/Expireable/valid_at": [
+      "asn1/impl/Asn1TimeRef/compare",
+      "x509/crl/impl/X509CRLRef/next_update"
+    ],
+    "fingerprint/impl/ScannableFingerprint/compare": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "cert_chain/to_error": [
+      "x509/impl/X509Ref/issued"
+    ],
+    "dcap/fakes/impl/SigningInfo/crl": [
+      "bn/impl/BigNumRef/to_asn1_integer"
+    ],
+    "build_self_signed_name": [
+      "x509/impl/X509NameBuilder/build",
+      "x509/impl/X509NameBuilder/new",
+      "x509/impl/X509NameBuilder/append_entry_by_text"
+    ],
+    "dcap/from_trusted": [
+      "x509/impl/X509Ref/ToOwned/to_owned",
+      "x509/verify/impl/X509VerifyParamRef/set_flags",
+      "x509/verify/impl/X509VerifyParamRef/set_time",
+      "x509/store/impl/X509StoreBuilderRef/add_crl",
+      "x509/store/impl/X509StoreBuilder/build",
+      "x509/store/impl/X509StoreBuilder/new",
+      "x509/store/impl/X509StoreBuilderRef/param_mut",
+      "x509/crl/impl/X509CRLRef/ToOwned/to_owned",
+      "x509/store/impl/X509StoreBuilderRef/add_cert"
+    ],
+    "cert_chain/testutil/pkey": [
+      "ec/impl/EcGroup/from_curve_name",
+      "pkey/impl/PKey/from_ec_key",
+      "ec/impl/EcKey/generate"
+    ],
+    "private_key_to_der": [
+      "pkey/impl/PKeyRef/private_key_to_der_pkcs8"
+    ],
+    "dcap/test/revoked_other_root": [
+      "bn/impl/BigNum/from_u32"
+    ],
+    "dcap/revocation_list/impl/RevocationList/from_der_data": [
+      "x509/impl/X509ExtensionRef/object",
+      "stack/impl/StackRef/iter",
+      "x509/crl/impl/X509CRLRef/extensions",
+      "asn1/impl/Asn1ObjectRef/nid"
+    ],
+    "certs/test/verify_certificate_via_rustls": [
+      "ssl/connector/impl/SslConnector/builder",
+      "ssl/connector/impl/SslConnectorBuilder/build",
+      "ssl/impl/SslMethod/tls_client",
+      "ssl/connector/impl/SslConnector/configure"
+    ],
+    "dcap/asn2unix": [
+      "asn1/impl/Asn1Time/from_unix",
+      "x509/impl/X509Ref/not_after",
+      "x509/impl/X509Ref/not_before",
+      "x509/crl/impl/X509CRLRef/last_update",
+      "asn1/impl/Asn1TimeRef/diff",
+      "x509/crl/impl/X509CRLRef/next_update"
+    ],
+    "errors/impl/FailedHandshakeReason/Display/fmt": [
+      "ssl/error/impl/ErrorCode/as_raw"
+    ],
+    "cert_chain/impl/CertChain/from_pem_data": [
+      "x509/impl/X509/stack_from_pem"
+    ],
+    "frame/impl/FramesReader/new": [
+      "ConstantTimeEq/ct_ne"
+    ],
+    "protocol/impl/SignalMessage/verify_mac": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "certs/impl/RootCertificates/apply_to_connector": [
+      "x509/store/impl/X509StoreBuilder/build",
+      "ssl/impl/SslContextBuilder/set_verify_cert_store",
+      "x509/store/impl/X509StoreBuilder/new",
+      "x509/store/impl/X509StoreBuilderRef/add_cert"
+    ],
+    "cert_chain/impl/CertChain/leaf_pub_key": [
+      "pkey/impl/PKeyRef/ec_key",
+      "x509/impl/X509Ref/public_key"
+    ],
+    "api/profiles/profile_key/impl/ProfileKey/PartialEq/eq": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "tcp_ssl/proxy/testutil/impl/TlsServer/new": [
+      "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5",
+      "pkey/impl/PKey/private_key_from_der",
+      "ssl/impl/SslMethod/tls_server",
+      "ssl/impl/SslContextBuilder/set_certificate",
+      "ssl/impl/SslContextBuilder/check_private_key",
+      "ssl/impl/SslContextBuilder/set_private_key",
+      "ssl/connector/impl/SslAcceptorBuilder/build"
+    ],
+    "dcap/test/revoked_pck": [
+      "x509/impl/X509Ref/serial_number",
+      "asn1/impl/Asn1IntegerRef/to_bn"
+    ],
+    "dcap/root_trust_store": [
+      "x509/crl/impl/X509CRLRef/verify",
+      "x509/impl/X509Ref/verify",
+      "x509/impl/X509Ref/issued"
+    ],
+    "dcap/attest_impl": [
+      "pkey/impl/PKey/from_ec_key",
+      "bn/impl/BigNumContext/new",
+      "ec/impl/EcGroup/from_curve_name",
+      "ec/impl/EcPoint/from_bytes",
+      "ec/impl/EcKey/from_public_key"
+    ],
+    "dcap/test/revoked_tcb_signer": [
+      "asn1/impl/Asn1IntegerRef/to_bn",
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "dcap/sgx_quote/impl/SgxQuoteSupport/read": [
+      "x509/impl/X509ExtensionRef/object",
+      "x509/impl/X509Ref/extensions",
+      "stack/impl/StackRef/iter",
+      "asn1/impl/Asn1StringRef/as_slice",
+      "x509/impl/X509ExtensionRef/data"
+    ],
+    "kem/impl/Key/PartialEq/eq": [
+      "impl/bool/From/from"
+    ],
+    "dcap/fakes/impl/SigningInfo/Default/default": [
+      "ec/impl/EcGroup/from_curve_name",
+      "ec/impl/EcKey/generate"
+    ],
+    "cert_chain/impl/CertChain/Expireable/valid_at": [
+      "x509/impl/X509Ref/not_after",
+      "x509/impl/X509Ref/not_before",
+      "asn1/impl/Asn1TimeRef/compare"
+    ],
+    "dcap/sgx_x509/impl/SgxPckExtension/is_pck_ext": [
+      "asn1/impl/Asn1ObjectRef/oid_string",
+      "asn1/impl/Asn1ObjectRef/nid"
+    ],
+    "cert_chain/impl/CertChain/stack": [
+      "stack/impl/StackRef/push",
+      "stack/impl/Stack/new"
+    ],
+    "create_self_signed_cert": [
+      "pkey/impl/PKey/private_key_from_der"
+    ],
+    "build_cert": [
+      "x509/impl/X509Builder/set_pubkey",
+      "hash/impl/MessageDigest/sha256",
+      "x509/impl/X509Builder/set_issuer_name",
+      "x509/impl/X509Builder/set_not_after",
+      "asn1/impl/Asn1Time/from_unix",
+      "x509/impl/X509Builder/set_not_before",
+      "asn1/impl/Asn1Time/days_from_now",
+      "x509/impl/X509Builder/sign",
+      "x509/impl/X509Builder/new",
+      "x509/impl/X509Builder/set_subject_name",
+      "x509/impl/X509Builder/build"
+    ],
+    "frame/impl/FramesReader/VerifyHmac/verify_hmac": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "endorsements/impl/ServerDerivedKeyPair/verify": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "dcap/sgx_quote/tests/isv_sig_bad_sig": [
+      "ecdsa/impl/EcdsaSig/sign"
+    ],
+    "username_links/decrypt_username": [
+      "impl/bool/From/from",
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "sealed_sender/sealed_sender_decrypt_to_usmc": [
+      "impl/bool/From/from",
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "test_generate_and_parse": [
+      "pkey/impl/PKey/private_key_from_der",
+      "rsa/impl/RsaRef/private_encrypt",
+      "pkey/impl/PKeyRef/rsa",
+      "x509/impl/X509Ref/public_key",
+      "x509/impl/X509Ref/verify",
+      "asn1/impl/Asn1TimeRef/compare",
+      "asn1/impl/Asn1Time/from_unix",
+      "asn1/impl/Asn1Time/days_from_now",
+      "rsa/impl/RsaRef/check_key",
+      "x509/impl/X509Ref/not_before",
+      "x509/impl/X509Ref/not_after"
+    ],
+    "cert_chain/testutil/serial_number": [
+      "bn/impl/BigNumRef/rand",
+      "bn/impl/BigNumRef/to_asn1_integer",
+      "bn/impl/BigNum/new"
+    ],
+    "tcp_ssl/ssl_config": [
+      "ssl/impl/SslContextBuilder/set_alpn_protos",
+      "ssl/impl/SslContextBuilder/set_min_proto_version",
+      "ssl/connector/impl/SslConnector/configure",
+      "ssl/impl/SslMethod/tls_client",
+      "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs",
+      "ssl/connector/impl/SslConnector/builder",
+      "ssl/connector/impl/SslConnectorBuilder/build"
+    ],
+    "proof/impl/Proof/from_slice": [
+      "impl/Option/From>/from"
+    ],
+    "crypto/profile_key_struct/impl/ProfileKeyStruct/ConditionallySelectable/conditional_select": [
+      "impl/u8/ConditionallySelectable/conditional_select"
+    ],
+    "dcap/sgx_quote/tests/generate_key": [
+      "ec/impl/EcKey/from_private_components",
+      "ec/impl/EcKey/generate",
+      "ec/impl/EcKeyRef/private_key",
+      "ec/impl/EcKeyRef/public_key",
+      "ec/impl/EcGroup/from_curve_name"
+    ],
+    "kem/impl/Key/ConstantTimeEq/ct_eq": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "crypto/aes256_ctr_hmacsha256_decrypt": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "create_rsa_private_key": [
+      "pkey/impl/PKey/from_rsa",
+      "rsa/impl/Rsa/generate"
+    ],
+    "errors/impl/SslErrorReasons/Display/fmt": [
+      "error/impl/ErrorStack/errors",
+      "error/impl/Error/reason"
+    ],
+    "cert_chain/test/names": [
+      "x509/impl/X509NameEntryRef/data",
+      "x509/impl/X509Ref/subject_name",
+      "x509/impl/X509NameRef/entries_by_nid",
+      "x509/impl/X509NameEntries/Iterator/next",
+      "asn1/impl/Asn1StringRef/as_utf8"
+    ],
+    "cert_chain/testutil/impl/TestCert/crl": [
+      "x509/crl/impl/X509CRLBuilder/new",
+      "x509/crl/impl/X509CRLBuilder/sign",
+      "x509/crl/impl/X509CRLBuilder/build",
+      "x509/crl/impl/X509Revoked/from_parts",
+      "x509/crl/impl/X509CRLBuilder/add_revoked",
+      "x509/impl/X509Ref/subject_name",
+      "hash/impl/MessageDigest/sha256",
+      "x509/crl/impl/X509CRLBuilder/set_next_update",
+      "x509/crl/impl/X509CRLBuilder/set_issuer_name",
+      "asn1/impl/Asn1Time/days_from_now",
+      "x509/crl/impl/X509CRLBuilder/set_last_update"
+    ],
+    "dcap/fakes/impl/FakeAttestationBuilder/sign": [
+      "hash/impl/Hasher/update",
+      "x509/impl/X509Ref/public_key",
+      "hash/impl/MessageDigest/sha256",
+      "pkey/impl/PKeyRef/ec_key",
+      "hash/impl/Hasher/new",
+      "hash/impl/Hasher/finish"
+    ],
+    "main": [
+      "pkey/impl/PKey/public_key_from_pem"
+    ],
+    "dcap/ecdsa/ecdsa_signature_from_bytes": [
+      "bn/impl/BigNum/from_slice",
+      "ecdsa/impl/EcdsaSig/from_private_components"
+    ],
+    "dcap/test/revoked_qe_id_signer": [
+      "asn1/impl/Asn1IntegerRef/to_bn",
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "dcap/fakes/impl/FakeAttestationBuilder/sign_data": [
+      "hash/hash",
+      "ecdsa/impl/EcdsaSig/sign",
+      "hash/impl/MessageDigest/sha256"
+    ],
+    "certs/test/verify_certificate_failure_via_rustls": [
+      "ssl/connector/impl/SslConnector/builder",
+      "ssl/connector/impl/SslConnector/configure",
+      "ssl/impl/SslMethod/tls_client",
+      "ssl/connector/impl/SslConnectorBuilder/build"
+    ],
+    "cert_chain/impl/CertChain/validate_chain": [
+      "x509/impl/X509StoreContextRef/verify_cert_with_crls",
+      "x509/impl/X509StoreContext/new",
+      "x509/impl/X509StoreContextRef/verify_result",
+      "x509/impl/X509StoreContextRef/init",
+      "x509/crl/impl/X509CRLRef/ToOwned/to_owned"
+    ],
+    "cert_chain/test/validate_revoked_from_root": [
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "certs/set_up_platform_verifier": [
+      "stack/impl/&StackRef/IntoIterator/into_iter",
+      "ssl/impl/SslContextBuilder/set_custom_verify_callback",
+      "ssl/impl/SslRef/peer_cert_chain"
+    ],
+    "aes_ctr/impl/Aes256Ctr32/new": [
+      "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init"
+    ],
+    "curve/impl/PublicKey/PartialEq/eq": [
+      "impl/bool/From/from"
+    ],
+    "cert_chain/test/validate_revoked_from_intermediate": [
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "curve/impl/PublicKey/ConstantTimeEq/ct_eq": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "dcap/ecdsa/EcdsaSigned/verify_signature": [
+      "ecdsa/impl/EcdsaSigRef/verify"
+    ],
+    "state/session/impl/SessionRecord/promote_matching_session": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ]
+  },
+  "deps_function_usage": {
+    "asn1/impl/Asn1Time/from_unix": 4,
+    "impl/CtOption/into_option": 1,
+    "impl/Choice/unwrap_u8": 1,
+    "impl/Choice/From/from": 1,
+    "ConditionallySelectable/conditional_assign": 1,
+    "ec/impl/EcGroup/from_curve_name": 6,
+    "bn/impl/BigNumContext/new": 2,
+    "ec/impl/EcKeyRef/public_key": 2,
+    "ec/impl/EcPointRef/affine_coordinates_gfp": 1,
+    "bn/impl/BigNum/new": 2,
+    "bn/impl/BigNumRef/to_vec_padded": 1,
+    "x509/impl/X509Builder/set_not_before": 2,
+    "x509/impl/X509Builder/set_serial_number": 1,
+    "x509/extension/impl/BasicConstraints/ca": 1,
+    "x509/impl/X509Builder/set_not_after": 2,
+    "x509/impl/X509Ref/subject_name": 3,
+    "asn1/impl/Asn1Time/days_from_now": 4,
+    "x509/impl/X509Builder/sign": 2,
+    "hash/impl/MessageDigest/sha256": 5,
+    "x509/impl/X509Builder/build": 2,
+    "x509/impl/X509Builder/append_extension": 1,
+    "x509/impl/X509Builder/set_issuer_name": 2,
+    "x509/impl/X509/builder": 1,
+    "x509/extension/impl/BasicConstraints/new": 1,
+    "x509/impl/X509Builder/set_pubkey": 2,
+    "x509/impl/X509Name/builder": 1,
+    "x509/extension/impl/BasicConstraints/build": 1,
+    "x509/impl/X509Builder/set_version": 1,
+    "x509/impl/X509NameBuilder/build": 2,
+    "x509/impl/X509Builder/set_subject_name": 2,
+    "x509/impl/X509NameBuilder/append_entry_by_nid": 1,
+    "x509/extension/impl/BasicConstraints/critical": 1,
+    "bn/impl/BigNum/from_u32": 2,
+    "ecdsa/impl/EcdsaSig/sign": 3,
+    "impl//T//ConstantTimeEq/ct_eq": 13,
+    "impl/bool/From/from": 6,
+    "ec/impl/EcKey/from_public_key_affine_coordinates": 1,
+    "bn/impl/BigNum/from_slice": 2,
+    "x509/store/impl/X509StoreBuilderRef/param_mut": 2,
+    "x509/crl/impl/X509CRLRef/ToOwned/to_owned": 3,
+    "x509/verify/impl/X509VerifyParamRef/set_flags": 2,
+    "x509/store/impl/X509StoreBuilderRef/add_cert": 3,
+    "x509/impl/X509Ref/ToOwned/to_owned": 2,
+    "x509/store/impl/X509StoreBuilder/build": 3,
+    "x509/store/impl/X509StoreBuilder/new": 3,
+    "x509/store/impl/X509StoreBuilderRef/add_crl": 2,
+    "asn1/impl/Asn1TimeRef/compare": 3,
+    "x509/crl/impl/X509CRLRef/next_update": 2,
+    "x509/impl/X509Ref/issued": 2,
+    "bn/impl/BigNumRef/to_asn1_integer": 2,
+    "x509/impl/X509NameBuilder/new": 1,
+    "x509/impl/X509NameBuilder/append_entry_by_text": 1,
+    "x509/verify/impl/X509VerifyParamRef/set_time": 1,
+    "pkey/impl/PKey/from_ec_key": 2,
+    "ec/impl/EcKey/generate": 3,
+    "pkey/impl/PKeyRef/private_key_to_der_pkcs8": 1,
+    "x509/impl/X509ExtensionRef/object": 2,
+    "stack/impl/StackRef/iter": 2,
+    "x509/crl/impl/X509CRLRef/extensions": 1,
+    "asn1/impl/Asn1ObjectRef/nid": 2,
+    "ssl/connector/impl/SslConnector/builder": 3,
+    "ssl/connector/impl/SslConnectorBuilder/build": 3,
+    "ssl/impl/SslMethod/tls_client": 3,
+    "ssl/connector/impl/SslConnector/configure": 3,
+    "x509/impl/X509Ref/not_after": 3,
+    "x509/impl/X509Ref/not_before": 3,
+    "x509/crl/impl/X509CRLRef/last_update": 1,
+    "asn1/impl/Asn1TimeRef/diff": 1,
+    "ssl/error/impl/ErrorCode/as_raw": 1,
+    "x509/impl/X509/stack_from_pem": 1,
+    "ConstantTimeEq/ct_ne": 1,
+    "ssl/impl/SslContextBuilder/set_verify_cert_store": 1,
+    "pkey/impl/PKeyRef/ec_key": 2,
+    "x509/impl/X509Ref/public_key": 3,
+    "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5": 1,
+    "pkey/impl/PKey/private_key_from_der": 3,
+    "ssl/impl/SslMethod/tls_server": 1,
+    "ssl/impl/SslContextBuilder/set_certificate": 1,
+    "ssl/impl/SslContextBuilder/check_private_key": 1,
+    "ssl/impl/SslContextBuilder/set_private_key": 1,
+    "ssl/connector/impl/SslAcceptorBuilder/build": 1,
+    "x509/impl/X509Ref/serial_number": 5,
+    "asn1/impl/Asn1IntegerRef/to_bn": 3,
+    "x509/crl/impl/X509CRLRef/verify": 1,
+    "x509/impl/X509Ref/verify": 2,
+    "ec/impl/EcPoint/from_bytes": 1,
+    "ec/impl/EcKey/from_public_key": 1,
+    "x509/impl/X509Ref/extensions": 1,
+    "asn1/impl/Asn1StringRef/as_slice": 1,
+    "x509/impl/X509ExtensionRef/data": 1,
+    "asn1/impl/Asn1ObjectRef/oid_string": 1,
+    "stack/impl/StackRef/push": 1,
+    "stack/impl/Stack/new": 1,
+    "x509/impl/X509Builder/new": 1,
+    "rsa/impl/RsaRef/private_encrypt": 1,
+    "pkey/impl/PKeyRef/rsa": 1,
+    "rsa/impl/RsaRef/check_key": 1,
+    "bn/impl/BigNumRef/rand": 1,
+    "ssl/impl/SslContextBuilder/set_alpn_protos": 1,
+    "ssl/impl/SslContextBuilder/set_min_proto_version": 1,
+    "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs": 1,
+    "impl/Option/From>/from": 1,
+    "impl/u8/ConditionallySelectable/conditional_select": 1,
+    "ec/impl/EcKey/from_private_components": 1,
+    "ec/impl/EcKeyRef/private_key": 1,
+    "pkey/impl/PKey/from_rsa": 1,
+    "rsa/impl/Rsa/generate": 1,
+    "error/impl/ErrorStack/errors": 1,
+    "error/impl/Error/reason": 1,
+    "x509/impl/X509NameEntryRef/data": 1,
+    "x509/impl/X509NameRef/entries_by_nid": 1,
+    "x509/impl/X509NameEntries/Iterator/next": 1,
+    "asn1/impl/Asn1StringRef/as_utf8": 1,
+    "x509/crl/impl/X509CRLBuilder/new": 1,
+    "x509/crl/impl/X509CRLBuilder/sign": 1,
+    "x509/crl/impl/X509CRLBuilder/build": 1,
+    "x509/crl/impl/X509Revoked/from_parts": 1,
+    "x509/crl/impl/X509CRLBuilder/add_revoked": 1,
+    "x509/crl/impl/X509CRLBuilder/set_next_update": 1,
+    "x509/crl/impl/X509CRLBuilder/set_issuer_name": 1,
+    "x509/crl/impl/X509CRLBuilder/set_last_update": 1,
+    "hash/impl/Hasher/update": 1,
+    "hash/impl/Hasher/new": 1,
+    "hash/impl/Hasher/finish": 1,
+    "pkey/impl/PKey/public_key_from_pem": 1,
+    "ecdsa/impl/EcdsaSig/from_private_components": 1,
+    "hash/hash": 1,
+    "x509/impl/X509StoreContextRef/verify_cert_with_crls": 1,
+    "x509/impl/X509StoreContext/new": 1,
+    "x509/impl/X509StoreContextRef/verify_result": 1,
+    "x509/impl/X509StoreContextRef/init": 1,
+    "stack/impl/&StackRef/IntoIterator/into_iter": 1,
+    "ssl/impl/SslContextBuilder/set_custom_verify_callback": 1,
+    "ssl/impl/SslRef/peer_cert_chain": 1,
+    "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init": 1,
+    "ecdsa/impl/EcdsaSigRef/verify": 1
+  },
+  "deps_crate_usage": {
+    "ctr_in_body": 64,
+    "boring-signal": 205,
+    "sha2_in_body": 159,
+    "hmac_in_body": 139,
+    "aes_in_body": 217,
+    "cbc_in_body": 104,
+    "subtle": 26,
+    "curve25519_dalek_in_body": 30,
+    "subtle_in_body": 4,
+    "ctr": 1
+  },
+  "rust_files_using_deps": [
+    "rust/core/src/curve.rs",
+    "rust/protocol/src/crypto.rs",
+    "rust/protocol/src/kem.rs",
+    "rust/keytrans/src/vrf.rs",
+    "rust/crypto/src/aes_gcm.rs",
+    "rust/zkgroup/src/crypto/profile_key_struct.rs",
+    "rust/poksho/src/proof.rs",
+    "rust/core/examples/ed_to_xed.rs",
+    "rust/zkgroup/src/crypto/profile_key_encryption.rs",
+    "rust/zkcredential/src/endorsements.rs",
+    "rust/attest/src/dcap/sgx_x509.rs",
+    "rust/protocol/src/fingerprint.rs",
+    "rust/attest/src/dcap/ecdsa.rs",
+    "rust/protocol/src/state/session.rs",
+    "rust/attest/src/dcap/sgx_quote.rs",
+    "rust/net/infra/src/errors.rs",
+    "rust/attest/src/dcap.rs",
+    "rust/zkgroup/src/api/profiles/profile_key.rs",
+    "rust/attest/src/dcap/revocation_list.rs",
+    "rust/attest/src/cert_chain.rs",
+    "rust/device-transfer/tests/tests.rs",
+    "rust/crypto/src/aes_ctr.rs",
+    "rust/attest/src/util.rs",
+    "rust/protocol/src/sealed_sender.rs",
+    "rust/net/infra/src/certs.rs",
+    "rust/attest/src/dcap/fakes.rs",
+    "rust/core/src/curve/curve25519.rs",
+    "rust/message-backup/src/frame.rs",
+    "rust/usernames/src/username_links.rs",
+    "rust/device-transfer/src/lib.rs",
+    "rust/net/infra/src/tcp_ssl/proxy.rs",
+    "rust/net/infra/src/tcp_ssl.rs",
+    "rust/protocol/src/protocol.rs"
+  ]
+}
