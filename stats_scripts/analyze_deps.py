@@ -124,24 +124,24 @@ def generate_markdown_report(stats):
     # Most used deps functions
     md_content.append("## 🔥 Top 20 Most Called Deps Functions")
     md_content.append("")
-    md_content.append("| Rank | Calls | Function | Crate |")
-    md_content.append("|------|-------|----------|-------|")
+    md_content.append("| Rank | Calls | Function | Crate | Path |")
+    md_content.append("|------|-------|----------|-------|------|")
     for i, (func, count) in enumerate(stats['deps_function_usage'].most_common(20), 1):
         func_info = stats['function_info'].get(func, {})
         relative_path = func_info.get('relative_path', 'unknown')
         display_name = func_info.get('display_name', func.split('/')[-1] if '/' in func else func)
         crate = get_dep_crate_name(relative_path) or 'unknown'
-        md_content.append(f"| {i} | {count} | `{display_name}` | {crate} |")
+        md_content.append(f"| {i} | {count} | `{display_name}` | {crate} | `{relative_path}` |")
     md_content.append("")
     
     # Most used deps crates
     md_content.append("## 📦 Deps Crate Usage")
     md_content.append("")
-    md_content.append("| Crate | Calls | Description |")
-    md_content.append("|-------|-------|-------------|")
+    md_content.append("| Crate | Calls | Path Pattern |")
+    md_content.append("|-------|-------|--------------|")
     for crate, count in stats['deps_crate_usage'].most_common():
         if not crate.endswith('_in_body'):
-            md_content.append(f"| `{crate}` | {count} | External dependency |")
+            md_content.append(f"| `{crate}` | {count} | `deps/{crate}/` |")
     md_content.append("")
     
     # Crate usage in function bodies (text analysis)
@@ -190,15 +190,16 @@ def generate_markdown_report(stats):
         md_content.append("")
         md_content.append(f"**Total calls:** {details['total_calls']}")
         md_content.append("")
-        md_content.append("| Function | Calls |")
-        md_content.append("|----------|-------|")
+        md_content.append("| Function | Calls | Path |")
+        md_content.append("|----------|-------|------|")
         for func, count in details['functions'].most_common(10):  # Top 10 per crate
             func_info = stats['function_info'].get(func, {})
             display_name = func_info.get('display_name', func.split('/')[-1] if '/' in func else func)
-            md_content.append(f"| `{display_name}` | {count} |")
+            relative_path = func_info.get('relative_path', 'unknown')
+            md_content.append(f"| `{display_name}` | {count} | `{relative_path}` |")
         if len(details['functions']) > 10:
-            md_content.append(f"| ... | ... |")
-            md_content.append(f"| *{len(details['functions']) - 10} more functions* | |")
+            md_content.append(f"| ... | ... | ... |")
+            md_content.append(f"| *{len(details['functions']) - 10} more functions* | | |")
         md_content.append("")
     
     return "\n".join(md_content)
@@ -239,9 +240,31 @@ def main():
     output_file = 'dependency_analysis.json'
     with open(output_file, 'w') as f:
         # Convert Counter objects to regular dicts for JSON serialization
+        # Also include path information for each dependency and which rust files call them
+        deps_with_paths = {}
+        
+        # First, build a mapping of deps function -> list of rust files that call it
+        deps_to_rust_callers = defaultdict(set)
+        for rust_func, deps_list in stats['rust_to_deps_calls'].items():
+            rust_func_info = stats['function_info'].get(rust_func, {})
+            rust_file_path = rust_func_info.get('relative_path', 'unknown')
+            for dep_func in deps_list:
+                deps_to_rust_callers[dep_func].add(rust_file_path)
+        
+        for func, count in stats['deps_function_usage'].items():
+            func_info = stats['function_info'].get(func, {})
+            deps_with_paths[func] = {
+                'call_count': count,
+                'path': func_info.get('relative_path', 'unknown'),
+                'display_name': func_info.get('display_name', func.split('/')[-1] if '/' in func else func),
+                'crate': get_dep_crate_name(func_info.get('relative_path', '')),
+                'called_from_rust_files': sorted(list(deps_to_rust_callers.get(func, set())))
+            }
+        
         exportable_stats = {
             'rust_to_deps_calls': stats['rust_to_deps_calls'],
             'deps_function_usage': dict(stats['deps_function_usage']),
+            'deps_function_details': deps_with_paths,
             'deps_crate_usage': dict(stats['deps_crate_usage']),
             'rust_files_using_deps': list(stats['rust_files_using_deps'])
         }

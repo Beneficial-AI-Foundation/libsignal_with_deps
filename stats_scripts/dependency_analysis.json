@@ -1,571 +1,1874 @@
 {
   "rust_to_deps_calls": {
-    "util/system_time_to_asn1_time": [
-      "asn1/impl/Asn1Time/from_unix"
-    ],
-    "vrf/impl/PublicKey/proof_to_hash": [
-      "impl/CtOption/into_option"
-    ],
     "crypto/profile_key_encryption/impl/ProfileKeyEncryptionDomain/decrypt": [
-      "impl/Choice/unwrap_u8",
+      "ConditionallySelectable/conditional_assign",
       "impl/Choice/From/from",
-      "ConditionallySelectable/conditional_assign"
+      "impl/Choice/unwrap_u8"
     ],
-    "dcap/fakes/impl/SigningInfo/serialize_attest_public_key": [
-      "ec/impl/EcGroup/from_curve_name",
-      "bn/impl/BigNumContext/new",
-      "ec/impl/EcKeyRef/public_key",
-      "ec/impl/EcPointRef/affine_coordinates_gfp",
-      "bn/impl/BigNum/new",
-      "bn/impl/BigNumRef/to_vec_padded"
+    "tcp_ssl/ssl_config": [
+      "ssl/connector/impl/SslConnectorBuilder/build",
+      "ssl/connector/impl/SslConnector/configure",
+      "ssl/impl/SslContextBuilder/set_min_proto_version",
+      "ssl/impl/SslContextBuilder/set_alpn_protos",
+      "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs",
+      "ssl/connector/impl/SslConnector/builder",
+      "ssl/impl/SslMethod/tls_client"
     ],
-    "cert_chain/testutil/impl/TestCert/new": [
-      "x509/impl/X509Builder/set_not_before",
-      "x509/impl/X509Builder/set_serial_number",
-      "x509/extension/impl/BasicConstraints/ca",
-      "x509/impl/X509Builder/set_not_after",
-      "x509/impl/X509Ref/subject_name",
-      "asn1/impl/Asn1Time/days_from_now",
-      "x509/impl/X509Builder/sign",
+    "dcap/fakes/impl/FakeAttestationBuilder/sign": [
+      "x509/impl/X509Ref/public_key",
+      "hash/impl/Hasher/update",
+      "hash/impl/Hasher/finish",
       "hash/impl/MessageDigest/sha256",
-      "x509/impl/X509Builder/build",
-      "x509/impl/X509Builder/append_extension",
-      "x509/impl/X509Builder/set_issuer_name",
-      "x509/impl/X509/builder",
-      "x509/extension/impl/BasicConstraints/new",
-      "x509/impl/X509Builder/set_pubkey",
-      "x509/impl/X509Name/builder",
-      "x509/extension/impl/BasicConstraints/build",
-      "x509/impl/X509Builder/set_version",
-      "x509/impl/X509NameBuilder/build",
-      "x509/impl/X509Builder/set_subject_name",
-      "x509/impl/X509NameBuilder/append_entry_by_nid",
-      "x509/extension/impl/BasicConstraints/critical"
+      "hash/impl/Hasher/new",
+      "pkey/impl/PKeyRef/ec_key"
     ],
-    "dcap/test/revoked_other_pck": [
-      "bn/impl/BigNum/from_u32"
-    ],
-    "dcap/sgx_quote/tests/qe_sig_bad_sig": [
-      "ecdsa/impl/EcdsaSig/sign"
-    ],
-    "aes_gcm/impl/Aes256GcmDecryption/verify_tag": [
-      "impl//T//ConstantTimeEq/ct_eq",
-      "impl/bool/From/from"
-    ],
-    "curve/curve25519/impl/PrivateKey/verify_signature": [
-      "impl//T//ConstantTimeEq/ct_eq",
-      "impl/bool/From/from"
-    ],
-    "dcap/sgx_quote/key": [
-      "ec/impl/EcKey/from_public_key_affine_coordinates",
-      "bn/impl/BigNum/from_slice",
-      "ec/impl/EcGroup/from_curve_name"
-    ],
-    "cert_chain/test/trust_store": [
-      "x509/store/impl/X509StoreBuilderRef/param_mut",
+    "cert_chain/impl/CertChain/validate_chain": [
+      "x509/impl/X509StoreContext/new",
       "x509/crl/impl/X509CRLRef/ToOwned/to_owned",
-      "x509/verify/impl/X509VerifyParamRef/set_flags",
-      "x509/store/impl/X509StoreBuilderRef/add_cert",
-      "x509/impl/X509Ref/ToOwned/to_owned",
-      "x509/store/impl/X509StoreBuilder/build",
-      "x509/store/impl/X509StoreBuilder/new",
-      "x509/store/impl/X509StoreBuilderRef/add_crl"
-    ],
-    "dcap/revocation_list/impl/RevocationList/Expireable/valid_at": [
-      "asn1/impl/Asn1TimeRef/compare",
-      "x509/crl/impl/X509CRLRef/next_update"
+      "x509/impl/X509StoreContextRef/verify_cert_with_crls",
+      "x509/impl/X509StoreContextRef/verify_result",
+      "x509/impl/X509StoreContextRef/init"
     ],
     "fingerprint/impl/ScannableFingerprint/compare": [
       "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "cert_chain/to_error": [
-      "x509/impl/X509Ref/issued"
-    ],
-    "dcap/fakes/impl/SigningInfo/crl": [
-      "bn/impl/BigNumRef/to_asn1_integer"
-    ],
-    "build_self_signed_name": [
-      "x509/impl/X509NameBuilder/build",
-      "x509/impl/X509NameBuilder/new",
-      "x509/impl/X509NameBuilder/append_entry_by_text"
-    ],
-    "dcap/from_trusted": [
-      "x509/impl/X509Ref/ToOwned/to_owned",
-      "x509/verify/impl/X509VerifyParamRef/set_flags",
-      "x509/verify/impl/X509VerifyParamRef/set_time",
-      "x509/store/impl/X509StoreBuilderRef/add_crl",
-      "x509/store/impl/X509StoreBuilder/build",
-      "x509/store/impl/X509StoreBuilder/new",
-      "x509/store/impl/X509StoreBuilderRef/param_mut",
-      "x509/crl/impl/X509CRLRef/ToOwned/to_owned",
-      "x509/store/impl/X509StoreBuilderRef/add_cert"
-    ],
-    "cert_chain/testutil/pkey": [
-      "ec/impl/EcGroup/from_curve_name",
-      "pkey/impl/PKey/from_ec_key",
-      "ec/impl/EcKey/generate"
-    ],
-    "private_key_to_der": [
-      "pkey/impl/PKeyRef/private_key_to_der_pkcs8"
-    ],
-    "dcap/test/revoked_other_root": [
-      "bn/impl/BigNum/from_u32"
+    "dcap/sgx_quote/impl/SgxQuoteSupport/read": [
+      "x509/impl/X509Ref/extensions",
+      "x509/impl/X509ExtensionRef/data",
+      "stack/impl/StackRef/iter",
+      "x509/impl/X509ExtensionRef/object",
+      "asn1/impl/Asn1StringRef/as_slice"
     ],
     "dcap/revocation_list/impl/RevocationList/from_der_data": [
-      "x509/impl/X509ExtensionRef/object",
+      "asn1/impl/Asn1ObjectRef/nid",
       "stack/impl/StackRef/iter",
       "x509/crl/impl/X509CRLRef/extensions",
-      "asn1/impl/Asn1ObjectRef/nid"
+      "x509/impl/X509ExtensionRef/object"
     ],
-    "certs/test/verify_certificate_via_rustls": [
-      "ssl/connector/impl/SslConnector/builder",
-      "ssl/connector/impl/SslConnectorBuilder/build",
-      "ssl/impl/SslMethod/tls_client",
-      "ssl/connector/impl/SslConnector/configure"
+    "cert_chain/testutil/impl/TestCert/crl": [
+      "x509/crl/impl/X509CRLBuilder/set_next_update",
+      "asn1/impl/Asn1Time/days_from_now",
+      "x509/crl/impl/X509Revoked/from_parts",
+      "x509/crl/impl/X509CRLBuilder/set_last_update",
+      "x509/crl/impl/X509CRLBuilder/set_issuer_name",
+      "x509/crl/impl/X509CRLBuilder/sign",
+      "x509/crl/impl/X509CRLBuilder/add_revoked",
+      "hash/impl/MessageDigest/sha256",
+      "x509/crl/impl/X509CRLBuilder/build",
+      "x509/crl/impl/X509CRLBuilder/new",
+      "x509/impl/X509Ref/subject_name"
     ],
-    "dcap/asn2unix": [
-      "asn1/impl/Asn1Time/from_unix",
-      "x509/impl/X509Ref/not_after",
-      "x509/impl/X509Ref/not_before",
-      "x509/crl/impl/X509CRLRef/last_update",
-      "asn1/impl/Asn1TimeRef/diff",
-      "x509/crl/impl/X509CRLRef/next_update"
+    "curve/impl/PublicKey/PartialEq/eq": [
+      "impl/bool/From/from"
     ],
-    "errors/impl/FailedHandshakeReason/Display/fmt": [
-      "ssl/error/impl/ErrorCode/as_raw"
-    ],
-    "cert_chain/impl/CertChain/from_pem_data": [
-      "x509/impl/X509/stack_from_pem"
+    "dcap/revocation_list/impl/RevocationList/Expireable/valid_at": [
+      "x509/crl/impl/X509CRLRef/next_update",
+      "asn1/impl/Asn1TimeRef/compare"
     ],
     "frame/impl/FramesReader/new": [
       "ConstantTimeEq/ct_ne"
     ],
-    "protocol/impl/SignalMessage/verify_mac": [
+    "dcap/root_trust_store": [
+      "x509/crl/impl/X509CRLRef/verify",
+      "x509/impl/X509Ref/issued",
+      "x509/impl/X509Ref/verify"
+    ],
+    "create_self_signed_cert": [
+      "pkey/impl/PKey/private_key_from_der"
+    ],
+    "cert_chain/test/validate_revoked_from_intermediate": [
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "errors/impl/SslErrorReasons/Display/fmt": [
+      "error/impl/Error/reason",
+      "error/impl/ErrorStack/errors"
+    ],
+    "cert_chain/impl/CertChain/stack": [
+      "stack/impl/Stack/new",
+      "stack/impl/StackRef/push"
+    ],
+    "cert_chain/impl/CertChain/Expireable/valid_at": [
+      "asn1/impl/Asn1TimeRef/compare",
+      "x509/impl/X509Ref/not_after",
+      "x509/impl/X509Ref/not_before"
+    ],
+    "dcap/from_trusted": [
+      "x509/store/impl/X509StoreBuilderRef/add_crl",
+      "x509/store/impl/X509StoreBuilder/new",
+      "x509/verify/impl/X509VerifyParamRef/set_flags",
+      "x509/store/impl/X509StoreBuilderRef/add_cert",
+      "x509/store/impl/X509StoreBuilder/build",
+      "x509/verify/impl/X509VerifyParamRef/set_time",
+      "x509/store/impl/X509StoreBuilderRef/param_mut",
+      "x509/impl/X509Ref/ToOwned/to_owned",
+      "x509/crl/impl/X509CRLRef/ToOwned/to_owned"
+    ],
+    "util/system_time_to_asn1_time": [
+      "asn1/impl/Asn1Time/from_unix"
+    ],
+    "aes_gcm/impl/Aes256GcmDecryption/verify_tag": [
+      "impl/bool/From/from",
       "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "build_cert": [
+      "hash/impl/MessageDigest/sha256",
+      "x509/impl/X509Builder/set_not_before",
+      "x509/impl/X509Builder/build",
+      "x509/impl/X509Builder/sign",
+      "x509/impl/X509Builder/new",
+      "x509/impl/X509Builder/set_pubkey",
+      "x509/impl/X509Builder/set_issuer_name",
+      "x509/impl/X509Builder/set_subject_name",
+      "asn1/impl/Asn1Time/from_unix",
+      "x509/impl/X509Builder/set_not_after",
+      "asn1/impl/Asn1Time/days_from_now"
+    ],
+    "dcap/test/revoked_other_pck": [
+      "bn/impl/BigNum/from_u32"
+    ],
+    "kem/impl/Key/PartialEq/eq": [
+      "impl/bool/From/from"
     ],
     "certs/impl/RootCertificates/apply_to_connector": [
-      "x509/store/impl/X509StoreBuilder/build",
-      "ssl/impl/SslContextBuilder/set_verify_cert_store",
       "x509/store/impl/X509StoreBuilder/new",
-      "x509/store/impl/X509StoreBuilderRef/add_cert"
+      "x509/store/impl/X509StoreBuilderRef/add_cert",
+      "ssl/impl/SslContextBuilder/set_verify_cert_store",
+      "x509/store/impl/X509StoreBuilder/build"
     ],
-    "cert_chain/impl/CertChain/leaf_pub_key": [
-      "pkey/impl/PKeyRef/ec_key",
-      "x509/impl/X509Ref/public_key"
+    "dcap/fakes/impl/SigningInfo/serialize_attest_public_key": [
+      "ec/impl/EcKeyRef/public_key",
+      "bn/impl/BigNum/new",
+      "ec/impl/EcPointRef/affine_coordinates_gfp",
+      "bn/impl/BigNumContext/new",
+      "bn/impl/BigNumRef/to_vec_padded",
+      "ec/impl/EcGroup/from_curve_name"
     ],
-    "api/profiles/profile_key/impl/ProfileKey/PartialEq/eq": [
+    "crypto/aes256_ctr_hmacsha256_decrypt": [
       "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "tcp_ssl/proxy/testutil/impl/TlsServer/new": [
-      "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5",
-      "pkey/impl/PKey/private_key_from_der",
-      "ssl/impl/SslMethod/tls_server",
-      "ssl/impl/SslContextBuilder/set_certificate",
-      "ssl/impl/SslContextBuilder/check_private_key",
-      "ssl/impl/SslContextBuilder/set_private_key",
-      "ssl/connector/impl/SslAcceptorBuilder/build"
+    "dcap/test/revoked_qe_id_signer": [
+      "x509/impl/X509Ref/serial_number",
+      "asn1/impl/Asn1IntegerRef/to_bn"
+    ],
+    "private_key_to_der": [
+      "pkey/impl/PKeyRef/private_key_to_der_pkcs8"
+    ],
+    "dcap/sgx_quote/tests/isv_sig_bad_sig": [
+      "ecdsa/impl/EcdsaSig/sign"
     ],
     "dcap/test/revoked_pck": [
       "x509/impl/X509Ref/serial_number",
       "asn1/impl/Asn1IntegerRef/to_bn"
     ],
-    "dcap/root_trust_store": [
-      "x509/crl/impl/X509CRLRef/verify",
-      "x509/impl/X509Ref/verify",
-      "x509/impl/X509Ref/issued"
+    "main": [
+      "pkey/impl/PKey/public_key_from_pem"
     ],
-    "dcap/attest_impl": [
-      "pkey/impl/PKey/from_ec_key",
-      "bn/impl/BigNumContext/new",
-      "ec/impl/EcGroup/from_curve_name",
-      "ec/impl/EcPoint/from_bytes",
-      "ec/impl/EcKey/from_public_key"
+    "endorsements/impl/ServerDerivedKeyPair/verify": [
+      "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "dcap/test/revoked_tcb_signer": [
-      "asn1/impl/Asn1IntegerRef/to_bn",
+    "errors/impl/FailedHandshakeReason/Display/fmt": [
+      "ssl/error/impl/ErrorCode/as_raw"
+    ],
+    "vrf/impl/PublicKey/proof_to_hash": [
+      "impl/CtOption/into_option"
+    ],
+    "cert_chain/test/names": [
+      "x509/impl/X509NameEntries/Iterator/next",
+      "x509/impl/X509Ref/subject_name",
+      "asn1/impl/Asn1StringRef/as_utf8",
+      "x509/impl/X509NameRef/entries_by_nid",
+      "x509/impl/X509NameEntryRef/data"
+    ],
+    "tcp_ssl/proxy/testutil/impl/TlsServer/new": [
+      "ssl/impl/SslContextBuilder/set_private_key",
+      "pkey/impl/PKey/private_key_from_der",
+      "ssl/connector/impl/SslAcceptorBuilder/build",
+      "ssl/impl/SslMethod/tls_server",
+      "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5",
+      "ssl/impl/SslContextBuilder/set_certificate",
+      "ssl/impl/SslContextBuilder/check_private_key"
+    ],
+    "dcap/fakes/impl/FakeAttestationBuilder/sign_data": [
+      "hash/impl/MessageDigest/sha256",
+      "ecdsa/impl/EcdsaSig/sign",
+      "hash/hash"
+    ],
+    "protocol/impl/SignalMessage/verify_mac": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "cert_chain/test/validate_revoked_from_root": [
       "x509/impl/X509Ref/serial_number"
     ],
-    "dcap/sgx_quote/impl/SgxQuoteSupport/read": [
-      "x509/impl/X509ExtensionRef/object",
-      "x509/impl/X509Ref/extensions",
-      "stack/impl/StackRef/iter",
-      "asn1/impl/Asn1StringRef/as_slice",
-      "x509/impl/X509ExtensionRef/data"
+    "proof/impl/Proof/from_slice": [
+      "impl/Option/From>/from"
     ],
-    "kem/impl/Key/PartialEq/eq": [
-      "impl/bool/From/from"
-    ],
-    "dcap/fakes/impl/SigningInfo/Default/default": [
-      "ec/impl/EcGroup/from_curve_name",
-      "ec/impl/EcKey/generate"
-    ],
-    "cert_chain/impl/CertChain/Expireable/valid_at": [
-      "x509/impl/X509Ref/not_after",
+    "dcap/asn2unix": [
+      "asn1/impl/Asn1Time/from_unix",
       "x509/impl/X509Ref/not_before",
-      "asn1/impl/Asn1TimeRef/compare"
+      "asn1/impl/Asn1TimeRef/diff",
+      "x509/impl/X509Ref/not_after",
+      "x509/crl/impl/X509CRLRef/last_update",
+      "x509/crl/impl/X509CRLRef/next_update"
     ],
     "dcap/sgx_x509/impl/SgxPckExtension/is_pck_ext": [
       "asn1/impl/Asn1ObjectRef/oid_string",
       "asn1/impl/Asn1ObjectRef/nid"
     ],
-    "cert_chain/impl/CertChain/stack": [
-      "stack/impl/StackRef/push",
-      "stack/impl/Stack/new"
+    "dcap/ecdsa/EcdsaSigned/verify_signature": [
+      "ecdsa/impl/EcdsaSigRef/verify"
     ],
-    "create_self_signed_cert": [
-      "pkey/impl/PKey/private_key_from_der"
-    ],
-    "build_cert": [
-      "x509/impl/X509Builder/set_pubkey",
-      "hash/impl/MessageDigest/sha256",
-      "x509/impl/X509Builder/set_issuer_name",
-      "x509/impl/X509Builder/set_not_after",
-      "asn1/impl/Asn1Time/from_unix",
-      "x509/impl/X509Builder/set_not_before",
-      "asn1/impl/Asn1Time/days_from_now",
-      "x509/impl/X509Builder/sign",
-      "x509/impl/X509Builder/new",
-      "x509/impl/X509Builder/set_subject_name",
-      "x509/impl/X509Builder/build"
-    ],
-    "frame/impl/FramesReader/VerifyHmac/verify_hmac": [
-      "impl//T//ConstantTimeEq/ct_eq"
-    ],
-    "endorsements/impl/ServerDerivedKeyPair/verify": [
-      "impl//T//ConstantTimeEq/ct_eq"
-    ],
-    "dcap/sgx_quote/tests/isv_sig_bad_sig": [
+    "dcap/sgx_quote/tests/qe_sig_bad_sig": [
       "ecdsa/impl/EcdsaSig/sign"
+    ],
+    "curve/curve25519/impl/PrivateKey/verify_signature": [
+      "impl/bool/From/from",
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "build_self_signed_name": [
+      "x509/impl/X509NameBuilder/build",
+      "x509/impl/X509NameBuilder/append_entry_by_text",
+      "x509/impl/X509NameBuilder/new"
+    ],
+    "api/profiles/profile_key/impl/ProfileKey/PartialEq/eq": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "dcap/sgx_quote/tests/generate_key": [
+      "ec/impl/EcGroup/from_curve_name",
+      "ec/impl/EcKeyRef/public_key",
+      "ec/impl/EcKey/generate",
+      "ec/impl/EcKey/from_private_components",
+      "ec/impl/EcKeyRef/private_key"
+    ],
+    "cert_chain/impl/CertChain/from_pem_data": [
+      "x509/impl/X509/stack_from_pem"
+    ],
+    "certs/set_up_platform_verifier": [
+      "ssl/impl/SslContextBuilder/set_custom_verify_callback",
+      "ssl/impl/SslRef/peer_cert_chain",
+      "stack/impl/&StackRef/IntoIterator/into_iter"
+    ],
+    "dcap/sgx_quote/key": [
+      "bn/impl/BigNum/from_slice",
+      "ec/impl/EcKey/from_public_key_affine_coordinates",
+      "ec/impl/EcGroup/from_curve_name"
+    ],
+    "cert_chain/testutil/impl/TestCert/new": [
+      "x509/impl/X509Builder/set_serial_number",
+      "x509/impl/X509Builder/set_not_before",
+      "x509/impl/X509Builder/sign",
+      "x509/impl/X509Builder/set_not_after",
+      "x509/extension/impl/BasicConstraints/critical",
+      "x509/impl/X509Builder/append_extension",
+      "asn1/impl/Asn1Time/days_from_now",
+      "x509/impl/X509Builder/set_version",
+      "x509/impl/X509NameBuilder/build",
+      "x509/impl/X509Ref/subject_name",
+      "x509/impl/X509Builder/build",
+      "x509/impl/X509Builder/set_subject_name",
+      "x509/impl/X509Name/builder",
+      "x509/impl/X509Builder/set_issuer_name",
+      "x509/extension/impl/BasicConstraints/ca",
+      "x509/extension/impl/BasicConstraints/build",
+      "x509/impl/X509NameBuilder/append_entry_by_nid",
+      "x509/impl/X509/builder",
+      "x509/extension/impl/BasicConstraints/new",
+      "x509/impl/X509Builder/set_pubkey",
+      "hash/impl/MessageDigest/sha256"
+    ],
+    "create_rsa_private_key": [
+      "rsa/impl/Rsa/generate",
+      "pkey/impl/PKey/from_rsa"
+    ],
+    "certs/test/verify_certificate_failure_via_rustls": [
+      "ssl/connector/impl/SslConnectorBuilder/build",
+      "ssl/impl/SslMethod/tls_client",
+      "ssl/connector/impl/SslConnector/builder",
+      "ssl/connector/impl/SslConnector/configure"
+    ],
+    "dcap/test/revoked_other_root": [
+      "bn/impl/BigNum/from_u32"
     ],
     "username_links/decrypt_username": [
       "impl/bool/From/from",
       "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "sealed_sender/sealed_sender_decrypt_to_usmc": [
-      "impl/bool/From/from",
-      "impl//T//ConstantTimeEq/ct_eq"
-    ],
-    "test_generate_and_parse": [
-      "pkey/impl/PKey/private_key_from_der",
-      "rsa/impl/RsaRef/private_encrypt",
-      "pkey/impl/PKeyRef/rsa",
-      "x509/impl/X509Ref/public_key",
-      "x509/impl/X509Ref/verify",
-      "asn1/impl/Asn1TimeRef/compare",
-      "asn1/impl/Asn1Time/from_unix",
-      "asn1/impl/Asn1Time/days_from_now",
-      "rsa/impl/RsaRef/check_key",
-      "x509/impl/X509Ref/not_before",
-      "x509/impl/X509Ref/not_after"
-    ],
-    "cert_chain/testutil/serial_number": [
-      "bn/impl/BigNumRef/rand",
-      "bn/impl/BigNumRef/to_asn1_integer",
-      "bn/impl/BigNum/new"
-    ],
-    "tcp_ssl/ssl_config": [
-      "ssl/impl/SslContextBuilder/set_alpn_protos",
-      "ssl/impl/SslContextBuilder/set_min_proto_version",
-      "ssl/connector/impl/SslConnector/configure",
-      "ssl/impl/SslMethod/tls_client",
-      "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs",
-      "ssl/connector/impl/SslConnector/builder",
-      "ssl/connector/impl/SslConnectorBuilder/build"
-    ],
-    "proof/impl/Proof/from_slice": [
-      "impl/Option/From>/from"
-    ],
     "crypto/profile_key_struct/impl/ProfileKeyStruct/ConditionallySelectable/conditional_select": [
       "impl/u8/ConditionallySelectable/conditional_select"
     ],
-    "dcap/sgx_quote/tests/generate_key": [
-      "ec/impl/EcKey/from_private_components",
-      "ec/impl/EcKey/generate",
-      "ec/impl/EcKeyRef/private_key",
-      "ec/impl/EcKeyRef/public_key",
-      "ec/impl/EcGroup/from_curve_name"
+    "dcap/test/revoked_tcb_signer": [
+      "asn1/impl/Asn1IntegerRef/to_bn",
+      "x509/impl/X509Ref/serial_number"
+    ],
+    "dcap/ecdsa/ecdsa_signature_from_bytes": [
+      "ecdsa/impl/EcdsaSig/from_private_components",
+      "bn/impl/BigNum/from_slice"
     ],
     "kem/impl/Key/ConstantTimeEq/ct_eq": [
       "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "crypto/aes256_ctr_hmacsha256_decrypt": [
+    "dcap/attest_impl": [
+      "ec/impl/EcKey/from_public_key",
+      "ec/impl/EcGroup/from_curve_name",
+      "bn/impl/BigNumContext/new",
+      "ec/impl/EcPoint/from_bytes",
+      "pkey/impl/PKey/from_ec_key"
+    ],
+    "frame/impl/FramesReader/VerifyHmac/verify_hmac": [
       "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "create_rsa_private_key": [
-      "pkey/impl/PKey/from_rsa",
-      "rsa/impl/Rsa/generate"
-    ],
-    "errors/impl/SslErrorReasons/Display/fmt": [
-      "error/impl/ErrorStack/errors",
-      "error/impl/Error/reason"
-    ],
-    "cert_chain/test/names": [
-      "x509/impl/X509NameEntryRef/data",
-      "x509/impl/X509Ref/subject_name",
-      "x509/impl/X509NameRef/entries_by_nid",
-      "x509/impl/X509NameEntries/Iterator/next",
-      "asn1/impl/Asn1StringRef/as_utf8"
-    ],
-    "cert_chain/testutil/impl/TestCert/crl": [
-      "x509/crl/impl/X509CRLBuilder/new",
-      "x509/crl/impl/X509CRLBuilder/sign",
-      "x509/crl/impl/X509CRLBuilder/build",
-      "x509/crl/impl/X509Revoked/from_parts",
-      "x509/crl/impl/X509CRLBuilder/add_revoked",
-      "x509/impl/X509Ref/subject_name",
-      "hash/impl/MessageDigest/sha256",
-      "x509/crl/impl/X509CRLBuilder/set_next_update",
-      "x509/crl/impl/X509CRLBuilder/set_issuer_name",
-      "asn1/impl/Asn1Time/days_from_now",
-      "x509/crl/impl/X509CRLBuilder/set_last_update"
-    ],
-    "dcap/fakes/impl/FakeAttestationBuilder/sign": [
-      "hash/impl/Hasher/update",
+    "cert_chain/impl/CertChain/leaf_pub_key": [
       "x509/impl/X509Ref/public_key",
-      "hash/impl/MessageDigest/sha256",
-      "pkey/impl/PKeyRef/ec_key",
-      "hash/impl/Hasher/new",
-      "hash/impl/Hasher/finish"
+      "pkey/impl/PKeyRef/ec_key"
     ],
-    "main": [
-      "pkey/impl/PKey/public_key_from_pem"
+    "cert_chain/test/trust_store": [
+      "x509/impl/X509Ref/ToOwned/to_owned",
+      "x509/store/impl/X509StoreBuilderRef/add_crl",
+      "x509/verify/impl/X509VerifyParamRef/set_flags",
+      "x509/store/impl/X509StoreBuilderRef/add_cert",
+      "x509/store/impl/X509StoreBuilder/new",
+      "x509/store/impl/X509StoreBuilderRef/param_mut",
+      "x509/store/impl/X509StoreBuilder/build",
+      "x509/crl/impl/X509CRLRef/ToOwned/to_owned"
     ],
-    "dcap/ecdsa/ecdsa_signature_from_bytes": [
-      "bn/impl/BigNum/from_slice",
-      "ecdsa/impl/EcdsaSig/from_private_components"
+    "sealed_sender/sealed_sender_decrypt_to_usmc": [
+      "impl/bool/From/from",
+      "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "dcap/test/revoked_qe_id_signer": [
-      "asn1/impl/Asn1IntegerRef/to_bn",
-      "x509/impl/X509Ref/serial_number"
+    "dcap/fakes/impl/SigningInfo/crl": [
+      "bn/impl/BigNumRef/to_asn1_integer"
     ],
-    "dcap/fakes/impl/FakeAttestationBuilder/sign_data": [
-      "hash/hash",
-      "ecdsa/impl/EcdsaSig/sign",
-      "hash/impl/MessageDigest/sha256"
+    "curve/impl/PublicKey/ConstantTimeEq/ct_eq": [
+      "impl//T//ConstantTimeEq/ct_eq"
     ],
-    "certs/test/verify_certificate_failure_via_rustls": [
+    "state/session/impl/SessionRecord/promote_matching_session": [
+      "impl//T//ConstantTimeEq/ct_eq"
+    ],
+    "test_generate_and_parse": [
+      "x509/impl/X509Ref/public_key",
+      "x509/impl/X509Ref/verify",
+      "pkey/impl/PKeyRef/rsa",
+      "asn1/impl/Asn1TimeRef/compare",
+      "asn1/impl/Asn1Time/days_from_now",
+      "rsa/impl/RsaRef/check_key",
+      "rsa/impl/RsaRef/private_encrypt",
+      "x509/impl/X509Ref/not_after",
+      "asn1/impl/Asn1Time/from_unix",
+      "pkey/impl/PKey/private_key_from_der",
+      "x509/impl/X509Ref/not_before"
+    ],
+    "cert_chain/testutil/serial_number": [
+      "bn/impl/BigNumRef/to_asn1_integer",
+      "bn/impl/BigNumRef/rand",
+      "bn/impl/BigNum/new"
+    ],
+    "certs/test/verify_certificate_via_rustls": [
       "ssl/connector/impl/SslConnector/builder",
       "ssl/connector/impl/SslConnector/configure",
       "ssl/impl/SslMethod/tls_client",
       "ssl/connector/impl/SslConnectorBuilder/build"
     ],
-    "cert_chain/impl/CertChain/validate_chain": [
-      "x509/impl/X509StoreContextRef/verify_cert_with_crls",
-      "x509/impl/X509StoreContext/new",
-      "x509/impl/X509StoreContextRef/verify_result",
-      "x509/impl/X509StoreContextRef/init",
-      "x509/crl/impl/X509CRLRef/ToOwned/to_owned"
+    "cert_chain/testutil/pkey": [
+      "ec/impl/EcGroup/from_curve_name",
+      "ec/impl/EcKey/generate",
+      "pkey/impl/PKey/from_ec_key"
     ],
-    "cert_chain/test/validate_revoked_from_root": [
-      "x509/impl/X509Ref/serial_number"
-    ],
-    "certs/set_up_platform_verifier": [
-      "stack/impl/&StackRef/IntoIterator/into_iter",
-      "ssl/impl/SslContextBuilder/set_custom_verify_callback",
-      "ssl/impl/SslRef/peer_cert_chain"
+    "dcap/fakes/impl/SigningInfo/Default/default": [
+      "ec/impl/EcKey/generate",
+      "ec/impl/EcGroup/from_curve_name"
     ],
     "aes_ctr/impl/Aes256Ctr32/new": [
       "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init"
     ],
-    "curve/impl/PublicKey/PartialEq/eq": [
-      "impl/bool/From/from"
-    ],
-    "cert_chain/test/validate_revoked_from_intermediate": [
-      "x509/impl/X509Ref/serial_number"
-    ],
-    "curve/impl/PublicKey/ConstantTimeEq/ct_eq": [
-      "impl//T//ConstantTimeEq/ct_eq"
-    ],
-    "dcap/ecdsa/EcdsaSigned/verify_signature": [
-      "ecdsa/impl/EcdsaSigRef/verify"
-    ],
-    "state/session/impl/SessionRecord/promote_matching_session": [
-      "impl//T//ConstantTimeEq/ct_eq"
+    "cert_chain/to_error": [
+      "x509/impl/X509Ref/issued"
     ]
   },
   "deps_function_usage": {
-    "asn1/impl/Asn1Time/from_unix": 4,
-    "impl/CtOption/into_option": 1,
-    "impl/Choice/unwrap_u8": 1,
-    "impl/Choice/From/from": 1,
     "ConditionallySelectable/conditional_assign": 1,
-    "ec/impl/EcGroup/from_curve_name": 6,
-    "bn/impl/BigNumContext/new": 2,
-    "ec/impl/EcKeyRef/public_key": 2,
-    "ec/impl/EcPointRef/affine_coordinates_gfp": 1,
-    "bn/impl/BigNum/new": 2,
-    "bn/impl/BigNumRef/to_vec_padded": 1,
-    "x509/impl/X509Builder/set_not_before": 2,
-    "x509/impl/X509Builder/set_serial_number": 1,
-    "x509/extension/impl/BasicConstraints/ca": 1,
-    "x509/impl/X509Builder/set_not_after": 2,
-    "x509/impl/X509Ref/subject_name": 3,
-    "asn1/impl/Asn1Time/days_from_now": 4,
-    "x509/impl/X509Builder/sign": 2,
-    "hash/impl/MessageDigest/sha256": 5,
-    "x509/impl/X509Builder/build": 2,
-    "x509/impl/X509Builder/append_extension": 1,
-    "x509/impl/X509Builder/set_issuer_name": 2,
-    "x509/impl/X509/builder": 1,
-    "x509/extension/impl/BasicConstraints/new": 1,
-    "x509/impl/X509Builder/set_pubkey": 2,
-    "x509/impl/X509Name/builder": 1,
-    "x509/extension/impl/BasicConstraints/build": 1,
-    "x509/impl/X509Builder/set_version": 1,
-    "x509/impl/X509NameBuilder/build": 2,
-    "x509/impl/X509Builder/set_subject_name": 2,
-    "x509/impl/X509NameBuilder/append_entry_by_nid": 1,
-    "x509/extension/impl/BasicConstraints/critical": 1,
-    "bn/impl/BigNum/from_u32": 2,
-    "ecdsa/impl/EcdsaSig/sign": 3,
-    "impl//T//ConstantTimeEq/ct_eq": 13,
-    "impl/bool/From/from": 6,
-    "ec/impl/EcKey/from_public_key_affine_coordinates": 1,
-    "bn/impl/BigNum/from_slice": 2,
-    "x509/store/impl/X509StoreBuilderRef/param_mut": 2,
-    "x509/crl/impl/X509CRLRef/ToOwned/to_owned": 3,
-    "x509/verify/impl/X509VerifyParamRef/set_flags": 2,
-    "x509/store/impl/X509StoreBuilderRef/add_cert": 3,
-    "x509/impl/X509Ref/ToOwned/to_owned": 2,
-    "x509/store/impl/X509StoreBuilder/build": 3,
-    "x509/store/impl/X509StoreBuilder/new": 3,
-    "x509/store/impl/X509StoreBuilderRef/add_crl": 2,
-    "asn1/impl/Asn1TimeRef/compare": 3,
-    "x509/crl/impl/X509CRLRef/next_update": 2,
-    "x509/impl/X509Ref/issued": 2,
-    "bn/impl/BigNumRef/to_asn1_integer": 2,
-    "x509/impl/X509NameBuilder/new": 1,
-    "x509/impl/X509NameBuilder/append_entry_by_text": 1,
-    "x509/verify/impl/X509VerifyParamRef/set_time": 1,
-    "pkey/impl/PKey/from_ec_key": 2,
-    "ec/impl/EcKey/generate": 3,
-    "pkey/impl/PKeyRef/private_key_to_der_pkcs8": 1,
-    "x509/impl/X509ExtensionRef/object": 2,
-    "stack/impl/StackRef/iter": 2,
-    "x509/crl/impl/X509CRLRef/extensions": 1,
-    "asn1/impl/Asn1ObjectRef/nid": 2,
-    "ssl/connector/impl/SslConnector/builder": 3,
+    "impl/Choice/From/from": 1,
+    "impl/Choice/unwrap_u8": 1,
     "ssl/connector/impl/SslConnectorBuilder/build": 3,
-    "ssl/impl/SslMethod/tls_client": 3,
     "ssl/connector/impl/SslConnector/configure": 3,
-    "x509/impl/X509Ref/not_after": 3,
-    "x509/impl/X509Ref/not_before": 3,
-    "x509/crl/impl/X509CRLRef/last_update": 1,
-    "asn1/impl/Asn1TimeRef/diff": 1,
-    "ssl/error/impl/ErrorCode/as_raw": 1,
-    "x509/impl/X509/stack_from_pem": 1,
-    "ConstantTimeEq/ct_ne": 1,
-    "ssl/impl/SslContextBuilder/set_verify_cert_store": 1,
-    "pkey/impl/PKeyRef/ec_key": 2,
-    "x509/impl/X509Ref/public_key": 3,
-    "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5": 1,
-    "pkey/impl/PKey/private_key_from_der": 3,
-    "ssl/impl/SslMethod/tls_server": 1,
-    "ssl/impl/SslContextBuilder/set_certificate": 1,
-    "ssl/impl/SslContextBuilder/check_private_key": 1,
-    "ssl/impl/SslContextBuilder/set_private_key": 1,
-    "ssl/connector/impl/SslAcceptorBuilder/build": 1,
-    "x509/impl/X509Ref/serial_number": 5,
-    "asn1/impl/Asn1IntegerRef/to_bn": 3,
-    "x509/crl/impl/X509CRLRef/verify": 1,
-    "x509/impl/X509Ref/verify": 2,
-    "ec/impl/EcPoint/from_bytes": 1,
-    "ec/impl/EcKey/from_public_key": 1,
-    "x509/impl/X509Ref/extensions": 1,
-    "asn1/impl/Asn1StringRef/as_slice": 1,
-    "x509/impl/X509ExtensionRef/data": 1,
-    "asn1/impl/Asn1ObjectRef/oid_string": 1,
-    "stack/impl/StackRef/push": 1,
-    "stack/impl/Stack/new": 1,
-    "x509/impl/X509Builder/new": 1,
-    "rsa/impl/RsaRef/private_encrypt": 1,
-    "pkey/impl/PKeyRef/rsa": 1,
-    "rsa/impl/RsaRef/check_key": 1,
-    "bn/impl/BigNumRef/rand": 1,
-    "ssl/impl/SslContextBuilder/set_alpn_protos": 1,
     "ssl/impl/SslContextBuilder/set_min_proto_version": 1,
+    "ssl/impl/SslContextBuilder/set_alpn_protos": 1,
     "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs": 1,
-    "impl/Option/From>/from": 1,
-    "impl/u8/ConditionallySelectable/conditional_select": 1,
-    "ec/impl/EcKey/from_private_components": 1,
-    "ec/impl/EcKeyRef/private_key": 1,
-    "pkey/impl/PKey/from_rsa": 1,
-    "rsa/impl/Rsa/generate": 1,
-    "error/impl/ErrorStack/errors": 1,
-    "error/impl/Error/reason": 1,
-    "x509/impl/X509NameEntryRef/data": 1,
-    "x509/impl/X509NameRef/entries_by_nid": 1,
-    "x509/impl/X509NameEntries/Iterator/next": 1,
-    "asn1/impl/Asn1StringRef/as_utf8": 1,
-    "x509/crl/impl/X509CRLBuilder/new": 1,
-    "x509/crl/impl/X509CRLBuilder/sign": 1,
-    "x509/crl/impl/X509CRLBuilder/build": 1,
-    "x509/crl/impl/X509Revoked/from_parts": 1,
-    "x509/crl/impl/X509CRLBuilder/add_revoked": 1,
-    "x509/crl/impl/X509CRLBuilder/set_next_update": 1,
-    "x509/crl/impl/X509CRLBuilder/set_issuer_name": 1,
-    "x509/crl/impl/X509CRLBuilder/set_last_update": 1,
+    "ssl/connector/impl/SslConnector/builder": 3,
+    "ssl/impl/SslMethod/tls_client": 3,
+    "x509/impl/X509Ref/public_key": 3,
     "hash/impl/Hasher/update": 1,
-    "hash/impl/Hasher/new": 1,
     "hash/impl/Hasher/finish": 1,
-    "pkey/impl/PKey/public_key_from_pem": 1,
-    "ecdsa/impl/EcdsaSig/from_private_components": 1,
-    "hash/hash": 1,
-    "x509/impl/X509StoreContextRef/verify_cert_with_crls": 1,
+    "hash/impl/MessageDigest/sha256": 5,
+    "hash/impl/Hasher/new": 1,
+    "pkey/impl/PKeyRef/ec_key": 2,
     "x509/impl/X509StoreContext/new": 1,
+    "x509/crl/impl/X509CRLRef/ToOwned/to_owned": 3,
+    "x509/impl/X509StoreContextRef/verify_cert_with_crls": 1,
     "x509/impl/X509StoreContextRef/verify_result": 1,
     "x509/impl/X509StoreContextRef/init": 1,
-    "stack/impl/&StackRef/IntoIterator/into_iter": 1,
+    "impl//T//ConstantTimeEq/ct_eq": 13,
+    "x509/impl/X509Ref/extensions": 1,
+    "x509/impl/X509ExtensionRef/data": 1,
+    "stack/impl/StackRef/iter": 2,
+    "x509/impl/X509ExtensionRef/object": 2,
+    "asn1/impl/Asn1StringRef/as_slice": 1,
+    "asn1/impl/Asn1ObjectRef/nid": 2,
+    "x509/crl/impl/X509CRLRef/extensions": 1,
+    "x509/crl/impl/X509CRLBuilder/set_next_update": 1,
+    "asn1/impl/Asn1Time/days_from_now": 4,
+    "x509/crl/impl/X509Revoked/from_parts": 1,
+    "x509/crl/impl/X509CRLBuilder/set_last_update": 1,
+    "x509/crl/impl/X509CRLBuilder/set_issuer_name": 1,
+    "x509/crl/impl/X509CRLBuilder/sign": 1,
+    "x509/crl/impl/X509CRLBuilder/add_revoked": 1,
+    "x509/crl/impl/X509CRLBuilder/build": 1,
+    "x509/crl/impl/X509CRLBuilder/new": 1,
+    "x509/impl/X509Ref/subject_name": 3,
+    "impl/bool/From/from": 6,
+    "x509/crl/impl/X509CRLRef/next_update": 2,
+    "asn1/impl/Asn1TimeRef/compare": 3,
+    "ConstantTimeEq/ct_ne": 1,
+    "x509/crl/impl/X509CRLRef/verify": 1,
+    "x509/impl/X509Ref/issued": 2,
+    "x509/impl/X509Ref/verify": 2,
+    "pkey/impl/PKey/private_key_from_der": 3,
+    "x509/impl/X509Ref/serial_number": 5,
+    "error/impl/Error/reason": 1,
+    "error/impl/ErrorStack/errors": 1,
+    "stack/impl/Stack/new": 1,
+    "stack/impl/StackRef/push": 1,
+    "x509/impl/X509Ref/not_after": 3,
+    "x509/impl/X509Ref/not_before": 3,
+    "x509/store/impl/X509StoreBuilderRef/add_crl": 2,
+    "x509/store/impl/X509StoreBuilder/new": 3,
+    "x509/verify/impl/X509VerifyParamRef/set_flags": 2,
+    "x509/store/impl/X509StoreBuilderRef/add_cert": 3,
+    "x509/store/impl/X509StoreBuilder/build": 3,
+    "x509/verify/impl/X509VerifyParamRef/set_time": 1,
+    "x509/store/impl/X509StoreBuilderRef/param_mut": 2,
+    "x509/impl/X509Ref/ToOwned/to_owned": 2,
+    "asn1/impl/Asn1Time/from_unix": 4,
+    "x509/impl/X509Builder/set_not_before": 2,
+    "x509/impl/X509Builder/build": 2,
+    "x509/impl/X509Builder/sign": 2,
+    "x509/impl/X509Builder/new": 1,
+    "x509/impl/X509Builder/set_pubkey": 2,
+    "x509/impl/X509Builder/set_issuer_name": 2,
+    "x509/impl/X509Builder/set_subject_name": 2,
+    "x509/impl/X509Builder/set_not_after": 2,
+    "bn/impl/BigNum/from_u32": 2,
+    "ssl/impl/SslContextBuilder/set_verify_cert_store": 1,
+    "ec/impl/EcKeyRef/public_key": 2,
+    "bn/impl/BigNum/new": 2,
+    "ec/impl/EcPointRef/affine_coordinates_gfp": 1,
+    "bn/impl/BigNumContext/new": 2,
+    "bn/impl/BigNumRef/to_vec_padded": 1,
+    "ec/impl/EcGroup/from_curve_name": 6,
+    "asn1/impl/Asn1IntegerRef/to_bn": 3,
+    "pkey/impl/PKeyRef/private_key_to_der_pkcs8": 1,
+    "ecdsa/impl/EcdsaSig/sign": 3,
+    "pkey/impl/PKey/public_key_from_pem": 1,
+    "ssl/error/impl/ErrorCode/as_raw": 1,
+    "impl/CtOption/into_option": 1,
+    "x509/impl/X509NameEntries/Iterator/next": 1,
+    "asn1/impl/Asn1StringRef/as_utf8": 1,
+    "x509/impl/X509NameRef/entries_by_nid": 1,
+    "x509/impl/X509NameEntryRef/data": 1,
+    "ssl/impl/SslContextBuilder/set_private_key": 1,
+    "ssl/connector/impl/SslAcceptorBuilder/build": 1,
+    "ssl/impl/SslMethod/tls_server": 1,
+    "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5": 1,
+    "ssl/impl/SslContextBuilder/set_certificate": 1,
+    "ssl/impl/SslContextBuilder/check_private_key": 1,
+    "hash/hash": 1,
+    "impl/Option/From>/from": 1,
+    "asn1/impl/Asn1TimeRef/diff": 1,
+    "x509/crl/impl/X509CRLRef/last_update": 1,
+    "asn1/impl/Asn1ObjectRef/oid_string": 1,
+    "ecdsa/impl/EcdsaSigRef/verify": 1,
+    "x509/impl/X509NameBuilder/build": 2,
+    "x509/impl/X509NameBuilder/append_entry_by_text": 1,
+    "x509/impl/X509NameBuilder/new": 1,
+    "ec/impl/EcKey/generate": 3,
+    "ec/impl/EcKey/from_private_components": 1,
+    "ec/impl/EcKeyRef/private_key": 1,
+    "x509/impl/X509/stack_from_pem": 1,
     "ssl/impl/SslContextBuilder/set_custom_verify_callback": 1,
     "ssl/impl/SslRef/peer_cert_chain": 1,
-    "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init": 1,
-    "ecdsa/impl/EcdsaSigRef/verify": 1
+    "stack/impl/&StackRef/IntoIterator/into_iter": 1,
+    "bn/impl/BigNum/from_slice": 2,
+    "ec/impl/EcKey/from_public_key_affine_coordinates": 1,
+    "x509/impl/X509Builder/set_serial_number": 1,
+    "x509/extension/impl/BasicConstraints/critical": 1,
+    "x509/impl/X509Builder/append_extension": 1,
+    "x509/impl/X509Builder/set_version": 1,
+    "x509/impl/X509Name/builder": 1,
+    "x509/extension/impl/BasicConstraints/ca": 1,
+    "x509/extension/impl/BasicConstraints/build": 1,
+    "x509/impl/X509NameBuilder/append_entry_by_nid": 1,
+    "x509/impl/X509/builder": 1,
+    "x509/extension/impl/BasicConstraints/new": 1,
+    "rsa/impl/Rsa/generate": 1,
+    "pkey/impl/PKey/from_rsa": 1,
+    "impl/u8/ConditionallySelectable/conditional_select": 1,
+    "ecdsa/impl/EcdsaSig/from_private_components": 1,
+    "ec/impl/EcKey/from_public_key": 1,
+    "ec/impl/EcPoint/from_bytes": 1,
+    "pkey/impl/PKey/from_ec_key": 2,
+    "bn/impl/BigNumRef/to_asn1_integer": 2,
+    "pkey/impl/PKeyRef/rsa": 1,
+    "rsa/impl/RsaRef/check_key": 1,
+    "rsa/impl/RsaRef/private_encrypt": 1,
+    "bn/impl/BigNumRef/rand": 1,
+    "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init": 1
+  },
+  "deps_function_details": {
+    "ConditionallySelectable/conditional_assign": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "conditional_assign",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/zkgroup/src/crypto/profile_key_encryption.rs"
+      ]
+    },
+    "impl/Choice/From/from": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "from",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/zkgroup/src/crypto/profile_key_encryption.rs"
+      ]
+    },
+    "impl/Choice/unwrap_u8": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "unwrap_u8",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/zkgroup/src/crypto/profile_key_encryption.rs"
+      ]
+    },
+    "ssl/connector/impl/SslConnectorBuilder/build": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ssl/connector.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs",
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/connector/impl/SslConnector/configure": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ssl/connector.rs",
+      "display_name": "configure",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs",
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_min_proto_version": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_min_proto_version",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_alpn_protos": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_alpn_protos",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_verify_algorithm_prefs": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_verify_algorithm_prefs",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/connector/impl/SslConnector/builder": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ssl/connector.rs",
+      "display_name": "builder",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs",
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "ssl/impl/SslMethod/tls_client": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "tls_client",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs",
+        "rust/net/infra/src/tcp_ssl.rs"
+      ]
+    },
+    "x509/impl/X509Ref/public_key": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "public_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "hash/impl/Hasher/update": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/hash.rs",
+      "display_name": "update",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "hash/impl/Hasher/finish": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/hash.rs",
+      "display_name": "finish",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "hash/impl/MessageDigest/sha256": {
+      "call_count": 5,
+      "path": "deps/boring-signal/src/hash.rs",
+      "display_name": "sha256",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "hash/impl/Hasher/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/hash.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "pkey/impl/PKeyRef/ec_key": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "ec_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "x509/impl/X509StoreContext/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLRef/ToOwned/to_owned": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "to_owned",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/impl/X509StoreContextRef/verify_cert_with_crls": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "verify_cert_with_crls",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509StoreContextRef/verify_result": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "verify_result",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509StoreContextRef/init": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "init",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "impl//T//ConstantTimeEq/ct_eq": {
+      "call_count": 13,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "ct_eq",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/core/src/curve.rs",
+        "rust/core/src/curve/curve25519.rs",
+        "rust/crypto/src/aes_gcm.rs",
+        "rust/message-backup/src/frame.rs",
+        "rust/protocol/src/crypto.rs",
+        "rust/protocol/src/fingerprint.rs",
+        "rust/protocol/src/kem.rs",
+        "rust/protocol/src/protocol.rs",
+        "rust/protocol/src/sealed_sender.rs",
+        "rust/protocol/src/state/session.rs",
+        "rust/usernames/src/username_links.rs",
+        "rust/zkcredential/src/endorsements.rs",
+        "rust/zkgroup/src/api/profiles/profile_key.rs"
+      ]
+    },
+    "x509/impl/X509Ref/extensions": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "extensions",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "x509/impl/X509ExtensionRef/data": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "data",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "stack/impl/StackRef/iter": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/stack.rs",
+      "display_name": "iter",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/revocation_list.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "x509/impl/X509ExtensionRef/object": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "object",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/revocation_list.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "asn1/impl/Asn1StringRef/as_slice": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "as_slice",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "asn1/impl/Asn1ObjectRef/nid": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "nid",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/revocation_list.rs",
+        "rust/attest/src/dcap/sgx_x509.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLRef/extensions": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "extensions",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/revocation_list.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/set_next_update": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "set_next_update",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "asn1/impl/Asn1Time/days_from_now": {
+      "call_count": 4,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "days_from_now",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "x509/crl/impl/X509Revoked/from_parts": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "from_parts",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/set_last_update": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "set_last_update",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/set_issuer_name": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "set_issuer_name",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/sign": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "sign",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/add_revoked": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "add_revoked",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/build": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLBuilder/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509Ref/subject_name": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "subject_name",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "impl/bool/From/from": {
+      "call_count": 6,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "from",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/core/src/curve.rs",
+        "rust/core/src/curve/curve25519.rs",
+        "rust/crypto/src/aes_gcm.rs",
+        "rust/protocol/src/kem.rs",
+        "rust/protocol/src/sealed_sender.rs",
+        "rust/usernames/src/username_links.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLRef/next_update": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "next_update",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs",
+        "rust/attest/src/dcap/revocation_list.rs"
+      ]
+    },
+    "asn1/impl/Asn1TimeRef/compare": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "compare",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/revocation_list.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "ConstantTimeEq/ct_ne": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "ct_ne",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/message-backup/src/frame.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLRef/verify": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "verify",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/impl/X509Ref/issued": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "issued",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/impl/X509Ref/verify": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "verify",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "pkey/impl/PKey/private_key_from_der": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "private_key_from_der",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs",
+        "rust/device-transfer/tests/tests.rs",
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "x509/impl/X509Ref/serial_number": {
+      "call_count": 5,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "serial_number",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "error/impl/Error/reason": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/error.rs",
+      "display_name": "reason",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/errors.rs"
+      ]
+    },
+    "error/impl/ErrorStack/errors": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/error.rs",
+      "display_name": "errors",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/errors.rs"
+      ]
+    },
+    "stack/impl/Stack/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/stack.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "stack/impl/StackRef/push": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/stack.rs",
+      "display_name": "push",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509Ref/not_after": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "not_after",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "x509/impl/X509Ref/not_before": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "not_before",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "x509/store/impl/X509StoreBuilderRef/add_crl": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/store.rs",
+      "display_name": "add_crl",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/store/impl/X509StoreBuilder/new": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/store.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "x509/verify/impl/X509VerifyParamRef/set_flags": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/verify.rs",
+      "display_name": "set_flags",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/store/impl/X509StoreBuilderRef/add_cert": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/store.rs",
+      "display_name": "add_cert",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "x509/store/impl/X509StoreBuilder/build": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/x509/store.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "x509/verify/impl/X509VerifyParamRef/set_time": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/verify.rs",
+      "display_name": "set_time",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/store/impl/X509StoreBuilderRef/param_mut": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/store.rs",
+      "display_name": "param_mut",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/impl/X509Ref/ToOwned/to_owned": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "to_owned",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "asn1/impl/Asn1Time/from_unix": {
+      "call_count": 4,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "from_unix",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs",
+        "rust/attest/src/util.rs",
+        "rust/device-transfer/src/lib.rs",
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_not_before": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_not_before",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/build": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/sign": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "sign",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_pubkey": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_pubkey",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_issuer_name": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_issuer_name",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_subject_name": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_subject_name",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_not_after": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_not_after",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "bn/impl/BigNum/from_u32": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "from_u32",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_verify_cert_store": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_verify_cert_store",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "ec/impl/EcKeyRef/public_key": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "public_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "bn/impl/BigNum/new": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "ec/impl/EcPointRef/affine_coordinates_gfp": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "affine_coordinates_gfp",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "bn/impl/BigNumContext/new": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs",
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "bn/impl/BigNumRef/to_vec_padded": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "to_vec_padded",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "ec/impl/EcGroup/from_curve_name": {
+      "call_count": 6,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "from_curve_name",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs",
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "asn1/impl/Asn1IntegerRef/to_bn": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "to_bn",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "pkey/impl/PKeyRef/private_key_to_der_pkcs8": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "private_key_to_der_pkcs8",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "ecdsa/impl/EcdsaSig/sign": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ecdsa.rs",
+      "display_name": "sign",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "pkey/impl/PKey/public_key_from_pem": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "public_key_from_pem",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/zkgroup/src/bin/generate_generic_server_params.rs"
+      ]
+    },
+    "ssl/error/impl/ErrorCode/as_raw": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/error.rs",
+      "display_name": "as_raw",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/errors.rs"
+      ]
+    },
+    "impl/CtOption/into_option": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "into_option",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/keytrans/src/vrf.rs"
+      ]
+    },
+    "x509/impl/X509NameEntries/Iterator/next": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "next",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "asn1/impl/Asn1StringRef/as_utf8": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "as_utf8",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509NameRef/entries_by_nid": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "entries_by_nid",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509NameEntryRef/data": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "data",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_private_key": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_private_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "ssl/connector/impl/SslAcceptorBuilder/build": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/connector.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "ssl/impl/SslMethod/tls_server": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "tls_server",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "ssl/connector/impl/SslAcceptor/mozilla_intermediate_v5": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/connector.rs",
+      "display_name": "mozilla_intermediate_v5",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_certificate": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_certificate",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/check_private_key": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "check_private_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/tcp_ssl/proxy.rs"
+      ]
+    },
+    "hash/hash": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/hash.rs",
+      "display_name": "hash",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "impl/Option/From>/from": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "from",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/poksho/src/proof.rs"
+      ]
+    },
+    "asn1/impl/Asn1TimeRef/diff": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "diff",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "x509/crl/impl/X509CRLRef/last_update": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/crl.rs",
+      "display_name": "last_update",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "asn1/impl/Asn1ObjectRef/oid_string": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/asn1.rs",
+      "display_name": "oid_string",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_x509.rs"
+      ]
+    },
+    "ecdsa/impl/EcdsaSigRef/verify": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ecdsa.rs",
+      "display_name": "verify",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/ecdsa.rs"
+      ]
+    },
+    "x509/impl/X509NameBuilder/build": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509NameBuilder/append_entry_by_text": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "append_entry_by_text",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "x509/impl/X509NameBuilder/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "ec/impl/EcKey/generate": {
+      "call_count": 3,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "generate",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "ec/impl/EcKey/from_private_components": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "from_private_components",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "ec/impl/EcKeyRef/private_key": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "private_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "x509/impl/X509/stack_from_pem": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "stack_from_pem",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "ssl/impl/SslContextBuilder/set_custom_verify_callback": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "set_custom_verify_callback",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "ssl/impl/SslRef/peer_cert_chain": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ssl/mod.rs",
+      "display_name": "peer_cert_chain",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "stack/impl/&StackRef/IntoIterator/into_iter": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/stack.rs",
+      "display_name": "into_iter",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/net/infra/src/certs.rs"
+      ]
+    },
+    "bn/impl/BigNum/from_slice": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "from_slice",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/ecdsa.rs",
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "ec/impl/EcKey/from_public_key_affine_coordinates": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "from_public_key_affine_coordinates",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/sgx_quote.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_serial_number": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_serial_number",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/extension/impl/BasicConstraints/critical": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/extension.rs",
+      "display_name": "critical",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509Builder/append_extension": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "append_extension",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509Builder/set_version": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "set_version",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509Name/builder": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "builder",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/extension/impl/BasicConstraints/ca": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/extension.rs",
+      "display_name": "ca",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/extension/impl/BasicConstraints/build": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/extension.rs",
+      "display_name": "build",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509NameBuilder/append_entry_by_nid": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "append_entry_by_nid",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/impl/X509/builder": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/mod.rs",
+      "display_name": "builder",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "x509/extension/impl/BasicConstraints/new": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/x509/extension.rs",
+      "display_name": "new",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "rsa/impl/Rsa/generate": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/rsa.rs",
+      "display_name": "generate",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "pkey/impl/PKey/from_rsa": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "from_rsa",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/src/lib.rs"
+      ]
+    },
+    "impl/u8/ConditionallySelectable/conditional_select": {
+      "call_count": 1,
+      "path": "deps/subtle/src/lib.rs",
+      "display_name": "conditional_select",
+      "crate": "subtle",
+      "called_from_rust_files": [
+        "rust/zkgroup/src/crypto/profile_key_struct.rs"
+      ]
+    },
+    "ecdsa/impl/EcdsaSig/from_private_components": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ecdsa.rs",
+      "display_name": "from_private_components",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap/ecdsa.rs"
+      ]
+    },
+    "ec/impl/EcKey/from_public_key": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "from_public_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "ec/impl/EcPoint/from_bytes": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/ec.rs",
+      "display_name": "from_bytes",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "pkey/impl/PKey/from_ec_key": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "from_ec_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap.rs"
+      ]
+    },
+    "bn/impl/BigNumRef/to_asn1_integer": {
+      "call_count": 2,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "to_asn1_integer",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs",
+        "rust/attest/src/dcap/fakes.rs"
+      ]
+    },
+    "pkey/impl/PKeyRef/rsa": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/pkey.rs",
+      "display_name": "rsa",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "rsa/impl/RsaRef/check_key": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/rsa.rs",
+      "display_name": "check_key",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "rsa/impl/RsaRef/private_encrypt": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/rsa.rs",
+      "display_name": "private_encrypt",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/device-transfer/tests/tests.rs"
+      ]
+    },
+    "bn/impl/BigNumRef/rand": {
+      "call_count": 1,
+      "path": "deps/boring-signal/src/bn.rs",
+      "display_name": "rand",
+      "crate": "boring-signal",
+      "called_from_rust_files": [
+        "rust/attest/src/cert_chain.rs"
+      ]
+    },
+    "ctr_core/impl/CtrCore/InnerIvInit/inner_iv_init": {
+      "call_count": 1,
+      "path": "deps/ctr/src/ctr_core.rs",
+      "display_name": "inner_iv_init",
+      "crate": "ctr",
+      "called_from_rust_files": [
+        "rust/crypto/src/aes_ctr.rs"
+      ]
+    }
   },
   "deps_crate_usage": {
     "ctr_in_body": 64,
+    "subtle": 26,
     "boring-signal": 205,
-    "sha2_in_body": 159,
     "hmac_in_body": 139,
     "aes_in_body": 217,
+    "sha2_in_body": 159,
     "cbc_in_body": 104,
-    "subtle": 26,
     "curve25519_dalek_in_body": 30,
     "subtle_in_body": 4,
     "ctr": 1
   },
   "rust_files_using_deps": [
-    "rust/core/src/curve.rs",
-    "rust/protocol/src/crypto.rs",
-    "rust/protocol/src/kem.rs",
+    "rust/net/infra/src/certs.rs",
     "rust/keytrans/src/vrf.rs",
+    "rust/protocol/src/crypto.rs",
+    "rust/core/src/curve/curve25519.rs",
+    "rust/attest/src/dcap/revocation_list.rs",
     "rust/crypto/src/aes_gcm.rs",
-    "rust/zkgroup/src/crypto/profile_key_struct.rs",
-    "rust/poksho/src/proof.rs",
-    "rust/core/examples/ed_to_xed.rs",
-    "rust/zkgroup/src/crypto/profile_key_encryption.rs",
-    "rust/zkcredential/src/endorsements.rs",
+    "rust/message-backup/src/frame.rs",
     "rust/attest/src/dcap/sgx_x509.rs",
+    "rust/zkgroup/src/crypto/profile_key_encryption.rs",
+    "rust/crypto/src/aes_ctr.rs",
+    "rust/usernames/src/username_links.rs",
     "rust/protocol/src/fingerprint.rs",
-    "rust/attest/src/dcap/ecdsa.rs",
-    "rust/protocol/src/state/session.rs",
+    "rust/protocol/src/protocol.rs",
     "rust/attest/src/dcap/sgx_quote.rs",
     "rust/net/infra/src/errors.rs",
     "rust/attest/src/dcap.rs",
-    "rust/zkgroup/src/api/profiles/profile_key.rs",
-    "rust/attest/src/dcap/revocation_list.rs",
-    "rust/attest/src/cert_chain.rs",
-    "rust/device-transfer/tests/tests.rs",
-    "rust/crypto/src/aes_ctr.rs",
-    "rust/attest/src/util.rs",
-    "rust/protocol/src/sealed_sender.rs",
-    "rust/net/infra/src/certs.rs",
-    "rust/attest/src/dcap/fakes.rs",
-    "rust/core/src/curve/curve25519.rs",
-    "rust/message-backup/src/frame.rs",
-    "rust/usernames/src/username_links.rs",
     "rust/device-transfer/src/lib.rs",
+    "rust/attest/src/util.rs",
     "rust/net/infra/src/tcp_ssl/proxy.rs",
+    "rust/protocol/src/kem.rs",
+    "rust/protocol/src/sealed_sender.rs",
+    "rust/zkgroup/src/crypto/profile_key_struct.rs",
+    "rust/protocol/src/state/session.rs",
+    "rust/core/examples/ed_to_xed.rs",
+    "rust/device-transfer/tests/tests.rs",
+    "rust/zkgroup/src/api/profiles/profile_key.rs",
+    "rust/zkcredential/src/endorsements.rs",
+    "rust/attest/src/dcap/ecdsa.rs",
     "rust/net/infra/src/tcp_ssl.rs",
-    "rust/protocol/src/protocol.rs"
+    "rust/attest/src/cert_chain.rs",
+    "rust/attest/src/dcap/fakes.rs",
+    "rust/poksho/src/proof.rs",
+    "rust/core/src/curve.rs"
   ]
 }
