@@ -928,7 +928,6 @@ mod test {
         builder.sign().attest().unwrap();
     }
 
-    // P_revoked depends pm P_from_u32
     #[test]
     fn revoked_other_root() {
         let mut builder = FakeAttestation::builder();

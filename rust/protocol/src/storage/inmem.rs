@@ -526,3 +526,51 @@ impl traits::SenderKeyStore for InMemSignalProtocolStore {
 }
 
 impl traits::ProtocolStore for InMemSignalProtocolStore {}
+
+/*
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::{ProtocolAddress, DeviceId};
+
+    #[tokio::test]
+    async fn test_session_store_load_consistency() {
+        let mut store = InMemSessionStore::new();
+        let address = ProtocolAddress::new("alice".to_string(), DeviceId::from(1));
+
+        // Initially should return None
+        let result = store.load_session(&address).await.unwrap();
+        assert_eq!(None, result);
+
+        // After storing should return the same record
+        let session = SessionRecord::new_fresh();
+        store.store_session(&address, &session).await.unwrap();
+
+        let loaded = store.load_session(&address).await.unwrap();
+        assert!(loaded.is_some());
+        // Note: Can't directly compare SessionRecords without implementing PartialEq
+    }
+
+    #[tokio::test]
+    async fn test_identity_change_detection() {
+        let identity_pair = IdentityKeyPair::generate(&mut rand::rngs::OsRng);
+        let mut store = InMemIdentityKeyStore::new(identity_pair, 12345);
+        let address = ProtocolAddress::new("bob".to_string(), DeviceId::from(1));
+
+        let key1 = IdentityKeyPair::generate(&mut rand::rngs::OsRng).identity_key();
+        let key2 = IdentityKeyPair::generate(&mut rand::rngs::OsRng).identity_key();
+
+        // First save should be new
+        let result1 = store.save_identity(&address, &key1).await.unwrap();
+        assert_eq!(IdentityChange::NewOrUnchanged, result1);
+
+        // Same key should be unchanged
+        let result2 = store.save_identity(&address, &key1).await.unwrap();
+        assert_eq!(IdentityChange::NewOrUnchanged, result2);
+
+        // Different key should be detected as replacement
+        let result3 = store.save_identity(&address, &key2).await.unwrap();
+        assert_eq!(IdentityChange::ReplacedExisting, result3);
+    }
+}
+*/

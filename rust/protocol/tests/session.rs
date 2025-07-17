@@ -400,6 +400,15 @@ fn test_chain_jump_over_limit_with_self() -> TestResult {
     Ok(())
 }
 
+// \forall alice_store, bob_store_builder:
+//           process_prekey_bundle(
+//                 alice_store.session_store,
+//                 alice_store.identity_store,
+//                 bob_store_builder.make_bundle_with_latest_keys(),
+//                 SystemTime::now(),
+//                 &mut csprng,
+//                 UsePQRatchet::Yes,
+//           ) == Ok(())
 #[test]
 fn test_bad_signed_pre_key_signature() -> TestResult {
     async {

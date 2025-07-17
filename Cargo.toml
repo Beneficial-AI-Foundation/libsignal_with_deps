@@ -37,7 +37,7 @@ default-members = [
 resolver = "2" # so that our dev-dependency features don't leak into products
 
 [workspace.package]
-version = "0.76.3"
+version = "0.76.4"
 authors = ["Signal Messenger LLC"]
 license = "AGPL-3.0-only"
 rust-version = "1.83.0"
@@ -62,6 +62,7 @@ libsignal-message-backup = { path = "rust/message-backup" }
 libsignal-net = { path = "rust/net" }
 libsignal-net-chat = { path = "rust/net/chat" }
 libsignal-protocol = { path = "rust/protocol" }
+libsignal-svrb = { path = "rust/svrb" }
 poksho = { path = "rust/poksho" }
 signal-crypto = { path = "rust/crypto" }
 signal-media = { path = "rust/media" }
@@ -79,15 +80,17 @@ signal-neon-futures = { path = "rust/bridge/node/futures" }
 # Our forks of some dependencies, accessible as xxx_signal so that usages of them are obvious in source code. Crates
 # that want to use the real things can depend on those directly.
 
+#boring-signal = { git = "https://github.com/signalapp/boring", tag = "signal-v4.15.0", package = "boring", default-features = false }
 boring-signal = { path = "deps/boring-signal", package = "boring", default-features = false }
 curve25519-dalek-signal = { git = 'https://github.com/signalapp/curve25519-dalek', package = "curve25519-dalek", tag = 'signal-curve25519-4.1.3' }
-#curve25519-dalek = { path = "deps/curve25519-dalek" }
+#curve25519-dalek-signal = { path = "deps/curve25519-dalek", package = "curve25519-dalek" }
 spqr = { git = "https://github.com/signalapp/SparsePostQuantumRatchet.git", tag = "v1.0.0" }
 tokio-boring-signal = { git = "https://github.com/signalapp/boring", package = "tokio-boring", tag = "signal-v4.15.0" }
 
 #aes = "0.8.3"
 aes = { path = "deps/aes" }
-aes-gcm-siv = "0.11.1"
+#aes-gcm-siv = "0.11.1"
+aes-gcm-siv = { path = "deps/aes-gcm-siv" }
 anyhow = "1.0.97"
 argon2 = "0.5.0"
 array-concat = "0.5.5"
@@ -104,14 +107,16 @@ base64 = "0.22.1"
 bincode = "1.3.2"
 bitflags = "2.6"
 bitstream-io = "1.10.0"
-blake2 = "0.10.6"
+#blake2 = "0.10.6"
+blake2 = { path = "deps/blake2" }
 boring = { version = "4.6.0", default-features = false }
 boring-sys = { version = "4.6.0", default-features = false }
 bytes = "1.9.0"
 #cbc = "0.1.2"
 cbc = { path = "deps/cbc" }
 cfg-if = "1.0.0"
-chacha20poly1305 = "0.10.1"
+#chacha20poly1305 = "0.10.1"
+chacha20poly1305 = { path = "deps/chacha20poly1305" }
 chrono = "0.4.23"
 clap = "4.4.11"
 clap-stdin = "0.6.0"
@@ -125,7 +130,8 @@ derive-where = "1.2.7"
 derive_more = "2.0.0"
 dir-test = "0.4.1"
 displaydoc = "0.2.4"
-ed25519-dalek = "2.1.0"
+#ed25519-dalek = "2.1.0"
+ed25519-dalek = { path = "deps/ed25519-dalek" }
 either = "1.13.0"
 env_logger = "0.11.7"
 flate2 = { version = "1.0.13", default-features = false }
@@ -137,6 +143,7 @@ heck = "0.5"
 hex = "0.4.3"
 hickory-proto = "0.24.1"
 hkdf = "0.12"
+#hmac = "0.12.0"
 hmac = { path = "deps/hmac" }
 http = "1.0.0"
 http-body-util = "0.1.1"
@@ -169,6 +176,7 @@ pin-project = "1.1.5"
 pretty_assertions = "1.4.0"
 proc-macro2 = "1.0.93"
 proptest = "1.1"
+proptest-state-machine = "0.4"
 prost = "0.13.5"
 prost-build = "0.13.5"
 protobuf = "3.7.2"
@@ -225,10 +233,6 @@ zerocopy = "0.8.24"
 boring = { git = 'https://github.com/signalapp/boring', tag = 'signal-v4.15.0' }
 boring-sys = { git = 'https://github.com/signalapp/boring', tag = 'signal-v4.15.0' }
 curve25519-dalek = { git = 'https://github.com/signalapp/curve25519-dalek', tag = 'signal-curve25519-4.1.3' }
-#curve25519-dalek = { path = "deps/curve25519-dalek" }
-subtle = { path = "deps/subtle" }
-
-
 
 [profile.dev.package.argon2]
 opt-level = 2 # libsignal-account-keys unit tests are too slow with an unoptimized argon2

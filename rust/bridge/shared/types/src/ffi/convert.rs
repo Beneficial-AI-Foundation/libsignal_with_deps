@@ -399,19 +399,13 @@ impl<const LEN: usize> ResultTypeInfo for [u8; LEN] {
 impl SimpleArgTypeInfo for Box<[String]> {
     type ArgType = BorrowedBytestringArray;
     fn convert_from(foreign: Self::ArgType) -> SignalFfiResult<Self> {
-        let BorrowedBytestringArray { bytes, lengths } = foreign;
-        let (mut bytes, lengths) = unsafe { (bytes.as_slice()?, lengths.as_slice()?) };
-
-        let mut out = Vec::with_capacity(lengths.len());
-        for length in lengths {
-            let string;
-            (string, bytes) = bytes.split_at(*length);
-            let string = std::str::from_utf8(string)
-                .map_err(|_| SignalProtocolError::InvalidArgument("invalid UTF-8".to_string()))?;
-            out.push(string.to_owned())
-        }
-
-        Ok(out.into_boxed_slice())
+        unsafe { foreign.iter()? }
+            .map(|bytes| {
+                Ok(std::str::from_utf8(bytes)
+                    .map_err(|_| SignalProtocolError::InvalidArgument("invalid UTF-8".to_string()))?
+                    .to_owned())
+            })
+            .try_collect()
     }
 }
 
@@ -422,6 +416,24 @@ impl SimpleArgTypeInfo for Option<Box<[u8]>> {
         let OptionalBorrowedSliceOf { present, value } = foreign;
         let slice = present.then(|| unsafe { value.as_slice() }).transpose()?;
         Ok(slice.map(Box::from))
+    }
+}
+
+impl SimpleArgTypeInfo for libsignal_net::chat::LanguageList {
+    type ArgType = <Box<[String]> as SimpleArgTypeInfo>::ArgType;
+
+    fn convert_from(foreign: Self::ArgType) -> SignalFfiResult<Self> {
+        let entries: Vec<&str> = unsafe { foreign.iter()? }
+            .map(|bytes| {
+                std::str::from_utf8(bytes)
+                    .map_err(|_| SignalProtocolError::InvalidArgument("invalid UTF-8".to_string()))
+            })
+            .try_collect()?;
+        Ok(
+            libsignal_net::chat::LanguageList::parse(&entries).map_err(|_| {
+                SignalProtocolError::InvalidArgument("invalid language in list".to_string())
+            })?,
+        )
     }
 }
 
@@ -818,6 +830,25 @@ impl<'a, T: BridgeHandle> ArgTypeInfo<'a> for &'a [&'a T] {
     }
 }
 
+impl<'a> ArgTypeInfo<'a> for &'a SignalFfiError {
+    // This is a lie, we can't *really* guarantee that the contents of an error are unwind-safe. But
+    // it's very unlikely we'll encounter one that isn't, especially when we only use them immutably
+    // in practice.
+    type ArgType = UnwindSafeArg<*const SignalFfiError>;
+    type StoredType = *const SignalFfiError;
+
+    fn borrow(foreign: Self::ArgType) -> SignalFfiResult<Self::StoredType> {
+        if foreign.is_null() {
+            return Err(NullPointerError.into());
+        }
+        Ok(foreign.0)
+    }
+
+    fn load_from(stored: &'a mut Self::StoredType) -> Self {
+        unsafe { stored.as_ref() }.expect("non-null checked above")
+    }
+}
+
 impl<T: BridgeHandle> ResultTypeInfo for T {
     type ResultType = MutPointer<T>;
     fn convert_into(self) -> SignalFfiResult<Self::ResultType> {
@@ -1089,6 +1120,7 @@ macro_rules! ffi_arg_type {
     (RegistrationCreateSessionRequest) => (ffi::FfiRegistrationCreateSessionRequest);
     (RegistrationPushToken) => (*const std::ffi::c_char);
     (SignedPublicPreKey) => (ffi::FfiSignedPublicPreKey);
+    (&SignalFfiError) => (ffi::UnwindSafeArg<*const SignalFfiError>);
     (&[u8; $len:expr]) => (*const [u8; $len]);
     (Option<&[u8; $len:expr]>) => (*const [u8; $len]);
     (&[& $typ:ty]) => (ffi::BorrowedSliceOf<ffi::ConstPointer< $typ >>);
@@ -1098,6 +1130,7 @@ macro_rules! ffi_arg_type {
     (&mut $typ:ty) => (ffi::MutPointer< $typ >);
     (Option<& $typ:ty>) => (ffi::ConstPointer< $typ >);
     (Box<[String]>) => (ffi::BorrowedBytestringArray);
+    (LanguageList) => (ffi::BorrowedBytestringArray);
     (Box<[u8]>) => (ffi::BorrowedSliceOf<std::ffi::c_uchar>);
     (Box<dyn $typ:ty >) => (ffi::ConstPointer< ::paste::paste!(ffi::[<Ffi $typ Struct>]) >);
     (Option<Box<dyn $typ:ty> >) => (ffi::ConstPointer< ::paste::paste!(ffi::[<Ffi $typ Struct>]) >);

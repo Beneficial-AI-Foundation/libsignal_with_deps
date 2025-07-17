@@ -64,3 +64,49 @@ pub fn parent_step(x: u64) -> u64 {
     let b = (x >> (k + 1)) & 1;
     (x | (1 << k)) ^ (b << (k + 1))
 }
+
+
+#[cfg(kani)]
+#[kani::proof]
+    fn verify_tree_navigation_properties() {
+        let x: u64 = kani::any();
+
+        // Bound the input to reasonable tree sizes (e.g., 16 bits)
+        kani::assume(x < (1 << 16));
+
+        // Property 1: Level consistency
+        let lvl = level(x);
+
+        // Property 2: If not a leaf, left and right steps should return valid children
+        if !is_leaf(x) && lvl > 0 {
+            let left_child = left_step(x);
+            let right_child = right_step(x);
+
+            // Children should be at one level lower
+            assert_eq!(level(left_child), lvl - 1);
+            assert_eq!(level(right_child), lvl - 1);
+
+            // Children should have the current node as parent
+            assert_eq!(parent_step(left_child), x);
+            assert_eq!(parent_step(right_child), x);
+
+            // Left child should be smaller than right child
+            assert!(left_child < right_child);
+        }
+
+        // Property 3: Parent-child relationship consistency
+        if lvl < 63 { // Avoid overflow
+            let parent = parent_step(x);
+            let parent_level = level(parent);
+
+            // Parent should be at one level higher
+            assert_eq!(parent_level, lvl + 1);
+
+            // Current node should be either left or right child of parent
+            if !is_leaf(parent) {
+                let left = left_step(parent);
+                let right = right_step(parent);
+                assert!(x == left || x == right);
+            }
+        }
+    }

@@ -141,3 +141,16 @@ mod tests {
         }
     }
 }
+
+#[cfg(kani)]
+#[kani::proof]
+fn kani_proof_ct_is_zero() {
+    let x: u8 = kani::any();
+    let result = ct_is_zero(x);
+    // Optionally, assert properties you expect
+    if x == 0 {
+        assert_eq!(result, 0xFF);
+    } else {
+        assert_eq!(result, 0x00);
+    }
+}

@@ -61,6 +61,8 @@ futures-util = { workspace = true }
 proptest = { workspace = true }
 rand_chacha = { workspace = true }
 rand_core = { workspace = true }
+futures = "0.3"
+tokio = { workspace = true, features = ["rt-multi-thread", "macros", "test-util"] }
 
 [build-dependencies]
 prost-build = { workspace = true }

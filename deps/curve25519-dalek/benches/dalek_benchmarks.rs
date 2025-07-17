@@ -243,6 +243,12 @@ mod ristretto_benches {
         });
     }
 
+    fn elligator<M: Measurement>(c: &mut BenchmarkGroup<M>) {
+        c.bench_function("RistrettoPoint Elligator", |b| {
+            b.iter(|| RistrettoPoint::from_uniform_bytes_single_elligator(&[0u8; 32]));
+        });
+    }
+
     fn double_and_compress_batch<M: Measurement>(c: &mut BenchmarkGroup<M>) {
         for batch_size in &BATCH_SIZES {
             c.bench_with_input(
@@ -265,6 +271,7 @@ mod ristretto_benches {
 
         compress(&mut g);
         decompress(&mut g);
+        elligator(&mut g);
         double_and_compress_batch(&mut g);
     }
 }
