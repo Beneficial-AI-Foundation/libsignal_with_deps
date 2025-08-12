@@ -10,18 +10,6 @@
 // - Henry de Valence <hdevalence@hdevalence.ca>
 
 #![no_std]
-#![cfg_attr(
-    all(
-        curve25519_dalek_backend = "simd",
-        nightly,
-        any(target_arch = "x86", target_arch = "x86_64")
-    ),
-    feature(stdarch_x86_avx512)
-)]
-#![cfg_attr(
-    all(curve25519_dalek_backend = "simd", nightly),
-    feature(avx512_target_feature)
-)]
 #![cfg_attr(docsrs, feature(doc_auto_cfg, doc_cfg, doc_cfg_hide))]
 #![cfg_attr(docsrs, doc(cfg_hide(docsrs)))]
 //------------------------------------------------------------------------
@@ -35,15 +23,7 @@
 // Linting:
 //------------------------------------------------------------------------
 #![cfg_attr(allow_unused_unsafe, allow(unused_unsafe))]
-#![warn(
-    clippy::unwrap_used,
-    missing_docs,
-    rust_2018_idioms,
-    unused_lifetimes,
-    unused_qualifications
-)]
-// Requires MSRV 1.77 as it does not allow build.rs gating
-#![allow(unexpected_cfgs)]
+#![warn(clippy::unwrap_used, missing_docs, rust_2018_idioms, unused_lifetimes)]
 
 //------------------------------------------------------------------------
 // External dependencies:
@@ -59,8 +39,8 @@ extern crate alloc;
 #[macro_use]
 extern crate std;
 
-#[cfg(feature = "digest")]
-pub use digest;
+// #[cfg(feature = "digest")]
+// pub use digest;
 
 // Internal macros. Must come first!
 #[macro_use]
@@ -88,16 +68,12 @@ pub mod constants;
 // External (and internal) traits.
 pub mod traits;
 
-// All the lizard code is here, for now
-#[cfg(feature = "lizard")]
-pub mod lizard;
-
 //------------------------------------------------------------------------
 // curve25519-dalek internal modules
 //------------------------------------------------------------------------
 
 // Finite field arithmetic mod p = 2^255 - 19
-pub mod field;
+pub(crate) mod field;
 
 // Arithmetic backends (using u32, u64, etc) live here
 #[cfg(docsrs)]
