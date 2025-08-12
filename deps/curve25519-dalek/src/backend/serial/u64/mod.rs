@@ -25,3 +25,15 @@ pub mod field;
 pub mod scalar;
 
 pub mod constants;
+
+pub mod field_verus;
+
+pub mod field_lemmas;
+
+pub mod common_verus;
+
+pub mod subtle_assumes;
+
+pub mod scalar_lemmas;
+
+pub mod scalar_specs;
